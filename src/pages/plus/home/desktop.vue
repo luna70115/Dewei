@@ -39,6 +39,7 @@ test();
   margin: 20px;
   width: 400px;
   background: #eeeeee;
+  color: $primary-color;
 }
 
 .box {

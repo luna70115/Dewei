@@ -95,7 +95,7 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         scss: {
           // 自動引入全域 SCSS 變數
-          additionalData: `@import "@/assets/scss/variables.scss";`
+          additionalData: `@import "@/assets/scss/variables.${currentEnvStyle}.scss";`
         }
       }
     },
