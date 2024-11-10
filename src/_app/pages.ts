@@ -45,9 +45,9 @@ for (const path in files) {
 
   // 獲取基礎路徑
   let routePath;
+  const currentStylePath = `/src/pages/${envStyle}`;
   if (isDesktop || isMobile) {
     // 如果是 desktop 或 mobile 文件，去掉最後的 /desktop.vue 或 /desktop.vue
-    const currentStylePath = `/src/pages/${envStyle}`;
     console.log(currentStylePath);
     console.log(path, "original path");
     routePath = path
@@ -57,7 +57,10 @@ for (const path in files) {
     console.log(routePath, "isDesktop", isDesktop, "isMobile", isMobile);
   } else {
     // 一般文件保持原有的處理方式
-    routePath = path.replace("../pages", "").toLowerCase().replace(".vue", "");
+    routePath = path
+      .replace(currentStylePath, "")
+      .toLowerCase()
+      .replace(".vue", "");
   }
 
   // 處理路由路徑

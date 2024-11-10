@@ -36,6 +36,20 @@
 
 ### pages 頁面存放位置
 放入此資料夾的檔案，會自動設定並加入Vue-router
+但第一層最主要的是樣式的環境。
+例如當環境設定是base就是會載入base裡面的元件檔案
+路由會依照檔案名稱或資料夾自動設定
+
+#### awd頁面
+目前有分awd以及一般頁面
+awd的話就需要建立一個資料夾。這個資料夾將會是路由名稱。
+接著將檔案分成desktop以及mobile，當超過App.vue設定的寬度就會依照寬度載入對應的元件。
+
+#### 一般頁面
+如果是一般頁面，只需要在pages建立一個vue檔案即可。可以有無限層的路由。
+例如
+- pages/trade/deposit.vue => /trade/deposit
+- pages/trade/detail/withdraw.vue => /trade/detail/withdraw
 
 ### store 狀態儲存的資料夾
 儲存pinia的資料夾，pinia會根據功能分成不同的ts檔
@@ -65,6 +79,8 @@
 - tsconfig.node.json tsconfig.json的額外設定檔
 
 - quasar-variables.scss quasar的變數檔，可以在此檔案中設定quasar的變數
+
+- variables.[env].scss 環境變數的設定檔，根據不同的環境變數設置全域的scss變數
 
 ## Version
 
