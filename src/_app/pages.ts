@@ -28,13 +28,15 @@ interface Route {
       };
 }
 
-const files = import.meta.glob("../pages/**/*.vue");
-const defaults = import.meta.glob<PageModule>("../pages/**/*.vue", {
+const files = import.meta.glob("@pages/**/*.vue");
+const defaults = import.meta.glob<PageModule>("@pages/**/*.vue", {
   eager: true
 });
 
 const modules: Route[] = [];
 const processedPaths = new Set<string>();
+const envStyle = import.meta.env.VITE_STYLE_ENV || "base";
+console.log(import.meta.env.VITE_STYLE_ENV, "import.meta.env.VITE_STYLE_ENV");
 
 for (const path in files) {
   // 檢查是否為 desktop 或 mobile 文件
@@ -45,10 +47,14 @@ for (const path in files) {
   let routePath;
   if (isDesktop || isMobile) {
     // 如果是 desktop 或 mobile 文件，去掉最後的 /desktop.vue 或 /desktop.vue
+    const currentStylePath = `/src/pages/${envStyle}`;
+    console.log(currentStylePath);
+    console.log(path, "original path");
     routePath = path
-      .replace("../pages", "")
+      .replace(currentStylePath, "")
       .replace(/\/(desktop|mobile)\.vue$/, "")
       .toLowerCase();
+    console.log(routePath, "isDesktop", isDesktop, "isMobile", isMobile);
   } else {
     // 一般文件保持原有的處理方式
     routePath = path.replace("../pages", "").toLowerCase().replace(".vue", "");

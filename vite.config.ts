@@ -6,11 +6,13 @@ import eslint from "vite-plugin-eslint";
 import { viteMockServe } from "vite-plugin-mock";
 import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 import { createHtmlPlugin } from "vite-plugin-html"; // 引入插件
+import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // 載入指定模式的環境變數，並指定環境變數目錄為 "env"
   const env = loadEnv(mode, process.cwd() + "/env");
-
+  const currentEnvStyle = env.VITE_STYLE_ENV || "base";
+  console.log(env.VITE_STYLE_ENV, "env.VITE_STYLE_ENV");
   // 僅提取以 VITE_ 開頭的環境變數
   const viteEnv = Object.keys(env)
     .filter((key) => key.startsWith("VITE_"))
@@ -85,7 +87,8 @@ export default defineConfig(({ mode }) => {
     /** 快捷路徑設定 */
     resolve: {
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)) // 設定 `@` 指向 `src` 資料夾
+        "@": fileURLToPath(new URL("./src", import.meta.url)), // 設定 `@` 指向 `src` 資料夾
+        "@pages": path.resolve(__dirname, `src/pages/${currentEnvStyle}`) // 指向當前環境的頁面資料夾
       }
     },
     /** 支援全域使用 await */
