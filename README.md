@@ -113,6 +113,7 @@ yarn build:uat 測試模式
 執行 compile 之後根目錄下產生 `/dist` 檔案夾
 
 ## 結構概覽
+```
 VUE_VITE_TS_START/                # 專案根目錄
 ├── env/                          # 環境變數文件，包含 .env.development、.env.production、.env.uat 等
 ├── mock/                         # 模擬數據資料夾，用於本地開發測試 API 數據
@@ -149,3 +150,4 @@ VUE_VITE_TS_START/                # 專案根目錄
 ├── tsconfig.node.json            # TypeScript 的 Node.js 環境配置補充文件
 ├── vite.config.ts                # Vite 配置文件，包含插件和構建設定
 └── yarn.lock                     # Yarn 鎖定文件，確保相同的依賴版本
+```
