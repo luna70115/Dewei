@@ -91,6 +91,14 @@ export default defineConfig(({ mode }) => {
         "@pages": path.resolve(__dirname, `src/pages/${currentEnvStyle}`) // 指向當前環境的頁面資料夾
       }
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 自動引入全域 SCSS 變數
+          additionalData: `@import "@/assets/scss/variables.scss";`
+        }
+      }
+    },
     /** 支援全域使用 await */
     esbuild: {
       supported: {
