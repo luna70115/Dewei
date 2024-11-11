@@ -4,8 +4,13 @@ import storage from "store2";
 
 const initLocale = (() => {
   const keepLocale = storage.get("locale");
-  if (keepLocale) return keepLocale;
+  console.log(import.meta.env.VITE_LOCALE);
+  console.log(keepLocale);
 
+  if (keepLocale) return keepLocale;
+  console.log(import.meta.env.VITE_LOCALE);
+
+  return import.meta.env.VITE_LOCALE;
   // 偵測使用者所在地區來去判斷語言
   let userLang =
     navigator.languages && navigator.languages.length > 0
