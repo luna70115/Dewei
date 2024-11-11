@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:temp": "vite --mode temp",
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky"

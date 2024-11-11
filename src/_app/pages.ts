@@ -35,8 +35,11 @@ const defaults = import.meta.glob<PageModule>("@pages/**/*.vue", {
 
 const modules: Route[] = [];
 const processedPaths = new Set<string>();
-const envStyle = import.meta.env.VITE_STYLE_ENV || "base";
-console.log(import.meta.env.VITE_STYLE_ENV, "import.meta.env.VITE_STYLE_ENV");
+const envTemplate = import.meta.env.VITE_TEMPLATE_ENV || "base";
+console.log(
+  import.meta.env.VITE_TEMPLATE_ENV,
+  "import.meta.env.VITE_STYLE_ENV"
+);
 
 for (const path in files) {
   // 檢查是否為 desktop 或 mobile 文件
@@ -45,7 +48,7 @@ for (const path in files) {
 
   // 獲取基礎路徑
   let routePath;
-  const currentStylePath = `/src/pages/${envStyle}`;
+  const currentStylePath = `/src/pages/${envTemplate}`;
   if (isDesktop || isMobile) {
     // 如果是 desktop 或 mobile 文件，去掉最後的 /desktop.vue 或 /desktop.vue
     console.log(currentStylePath);

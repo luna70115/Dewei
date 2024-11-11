@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   // 載入指定模式的環境變數，並指定環境變數目錄為 "env"
   const env = loadEnv(mode, process.cwd() + "/env");
   const currentEnvStyle = env.VITE_STYLE_ENV || "base";
-  console.log(env.VITE_STYLE_ENV, "env.VITE_STYLE_ENV");
+  const currentEnvTemplate = env.VITE_TEMPLATE_ENV || "base";
   // 僅提取以 VITE_ 開頭的環境變數
   const viteEnv = Object.keys(env)
     .filter((key) => key.startsWith("VITE_"))
@@ -24,6 +24,8 @@ export default defineConfig(({ mode }) => {
   // 在控制台輸出當前模式及載入的 VITE_ 開頭環境變數，便於調試
   console.log("當前模式:", mode);
   console.log("載入的 VITE 環境變數:", viteEnv);
+  console.log("當前載入模板:", currentEnvTemplate);
+  console.log("當前載入全域樣式:", env.VITE_STYLE_ENV);
 
   return {
     // base: "./",
@@ -88,7 +90,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)), // 設定 `@` 指向 `src` 資料夾
-        "@pages": path.resolve(__dirname, `src/pages/${currentEnvStyle}`) // 指向當前環境的頁面資料夾
+        "@pages": path.resolve(__dirname, `src/pages/${currentEnvTemplate}`) // 指向當前環境的頁面資料夾
       }
     },
     css: {
