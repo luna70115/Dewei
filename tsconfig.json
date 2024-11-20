@@ -30,7 +30,8 @@
   "include": [
     "src/**/*.ts", // 包括 src 目錄下的所有 TypeScript 文件
     "src/**/*.tsx", // 包括 src 目錄下的所有 TypeScript JSX 文件
-    "src/**/*.vue" // 包括 src 目錄下的所有 Vue 文件
+    "src/**/*.vue", // 包括 src 目錄下的所有 Vue 文件
+    "src/types/**/*.d.ts"
   ],
   "references": [
     {

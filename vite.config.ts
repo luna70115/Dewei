@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
   console.log("當前載入全域樣式:", env.VITE_STYLE_ENV);
 
   return {
-    // base: "./",
+    base: "./",
     envDir: "./env", // 指定環境變數文件的目錄
     plugins: [
       // Vue 插件，用於支援 Vue 單文件組件

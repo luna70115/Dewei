@@ -2,7 +2,8 @@
 import axios from "@/axios";
 // import { awaitAxios } from "@/axios";
 import GradientBorderBox from "@/components/gradient-border-box.vue";
-import bgImage from "@/assets/images/mock-bg.png?format=webp&width=500";
+import { getImageUrl } from "@/utils/getImageUrl";
+
 defineOptions({
   layout: "layout-default"
 });
@@ -23,13 +24,10 @@ test();
   <div>
     <q-card class="home-card">
       <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-      <img
-        src="@/assets/images/mock-bg.png?format=webp&width=500"
-        alt="示例圖片"
-      />
+      <img :src="getImageUrl('mock-bg.png')" alt="示例圖片" />
       <div
         class="bg-box"
-        :style="{ backgroundImage: `url('${bgImage}')` }"
+        :style="{ backgroundImage: `url('${getImageUrl('mock-bg.png')}')` }"
       ></div>
       <q-card-section>
         <div class="text-h6">Our Changing Planet</div>

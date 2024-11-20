@@ -17,7 +17,7 @@
 
 ### assets 樣式／媒體檔
 存放圖、影、scss的資料夾
-使用vite-imagetools將格式轉換為webp
+使用vite-imagetools將格式轉換為webp  .png?format=webp
 
 
 ### components 樣式／媒體檔
