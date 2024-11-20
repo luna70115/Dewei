@@ -2,6 +2,7 @@
 import axios from "@/axios";
 // import { awaitAxios } from "@/axios";
 import GradientBorderBox from "@/components/gradient-border-box.vue";
+import bgImage from "@/assets/images/mock-bg.png?format=webp&width=500";
 defineOptions({
   layout: "layout-default"
 });
@@ -22,7 +23,14 @@ test();
   <div>
     <q-card class="home-card">
       <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
+      <img
+        src="@/assets/images/mock-bg.png?format=webp&width=500"
+        alt="示例圖片"
+      />
+      <div
+        class="bg-box"
+        :style="{ backgroundImage: `url('${bgImage}')` }"
+      ></div>
       <q-card-section>
         <div class="text-h6">Our Changing Planet</div>
         <div class="text-subtitle2">by John Doe</div>
@@ -55,9 +63,11 @@ test();
   color: $primary-color;
 }
 
-.box {
-  border-radius: 28px;
-  border: #ffffff 5px solid;
-  box-shadow: #e2a307 0.5px 0.5px 0.5px;
+.bg-box {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>

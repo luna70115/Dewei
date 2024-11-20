@@ -6,7 +6,7 @@ import App from "./App.vue";
 import Layout from "@/_app/layouts";
 import Directives from "@/_app/directives";
 import router from "@/router";
-
+// import bgImage from "./directives/bgImage";
 /** plugin */
 import { Quasar, Loading, Dialog, Notify } from "quasar";
 import "@quasar/extras/material-icons/material-icons.css";
@@ -21,6 +21,7 @@ VueApp.use(pinia);
 VueApp.use(router);
 VueApp.use(Layout);
 VueApp.use(Directives);
+
 VueApp.use(Quasar, {
   plugins: {
     Loading,
