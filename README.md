@@ -144,6 +144,7 @@ VUE_VITE_TS_START/                # 專案根目錄
 │   ├── locales/                  # 多語系支援資料夾，語言包檔案按語系區分
 │   ├── pages/                    # 頁面組件資料夾，檔案會自動生成路由
 │   ├── store/                    # Pinia 狀態管理資料夾，按功能分成多個 ts 文件
+│   ├── services/                 # API管理資料夾
 │   ├── utils/                    # 小工具函數資料夾，根據功能分文件
 │   ├── App.vue                   # Vue 根組件
 │   ├── auto-imports.d.ts         # 自動引入插件生成的類型定義檔案
