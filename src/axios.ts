@@ -9,11 +9,7 @@ import transfer from "@/interceptors/transfer";
 const instance = axios.create({
   baseURL: import.meta.env.VITE_REMOTE_API || "",
   timeout: 10 * 1000, // 請求超時時間 10 秒
-  withCredentials: false, // 是否携帶cookie
-  headers: {
-    // 'Content-Type': 'application/json;charset=UTF-8',
-    "Access-Control-Allow-Origin": "*" //允許跨域
-  }
+  withCredentials: false // 是否携帶cookie
 });
 
 /* 狀態碼錯誤範圍 */
