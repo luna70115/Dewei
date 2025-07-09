@@ -95,17 +95,17 @@ export default defineConfig(({ mode }) => {
         "@pages": path.resolve(__dirname, `src/pages/${currentEnvTemplate}`) // 指向當前環境的頁面資料夾
       }
     },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // 自動引入全域 SCSS 變數
-          additionalData: `
-          @import "@/assets/scss/variables.${currentEnvStyle}.scss";
-          @import "@/assets/scss/main.${currentEnvStyle}.scss";
-          `
-        }
-      }
-    },
+    // css: {
+    //   preprocessorOptions: {
+    //     scss: {
+    //       // 自動引入全域 SCSS 變數
+    //       additionalData: `
+    //       @import "@/assets/scss/variables.${currentEnvStyle}.scss";
+    //       @import "@/assets/scss/main.${currentEnvStyle}.scss";
+    //       `
+    //     }
+    //   }
+    // },
     /** 支援全域使用 await */
     esbuild: {
       supported: {

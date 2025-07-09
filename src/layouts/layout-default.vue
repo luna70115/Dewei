@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from "../components/layout/header.vue";
+</script>
 
 <template>
   <div class="layout-default">
-    <div class="layout-default-header">預設layout-header</div>
+    <Header />
     <slot />
   </div>
 </template>
@@ -12,7 +14,6 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: center;
   align-items: center;
 }
 </style>
