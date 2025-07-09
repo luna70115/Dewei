@@ -8,7 +8,8 @@
     "dev:temp": "vite --mode temp",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commit": "git-cz"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue}": [
@@ -40,6 +41,8 @@
     "@typescript-eslint/parser": "^8.0.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/tsconfig": "^0.5.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -55,5 +58,10 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-mock": "^3.0.2"
+  },
+"config": {
+  "commitizen": {
+    "path": "./node_modules/cz-conventional-changelog"
   }
+}
 }
