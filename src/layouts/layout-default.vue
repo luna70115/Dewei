@@ -13,7 +13,7 @@ import Header from "../components/layout/header.vue";
 .layout-default {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  // height: 100vh;
   align-items: center;
 }
 </style>

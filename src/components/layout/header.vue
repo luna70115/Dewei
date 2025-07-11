@@ -45,11 +45,9 @@ const router = useRouter();
       <i class="fas fa-headset"></i><i class="fas fa-align-justify"></i>
     </div>
   </header>
-  <div>123</div>
 </template>
 
 <style scoped lang="scss">
-@import "../../assets/scss/main.scss";
 @keyframes arrowBounce {
   0%,
   100% {
@@ -108,7 +106,7 @@ const router = useRouter();
     pointer-events: none; // 避免 hover 到下拉選單時立即消失
     transition: opacity 0.4s ease;
     position: absolute;
-    top: 69px;
+    top: 70px;
     background: rgb(146, 146, 146);
     color: #fff;
     width: 140px;
@@ -119,7 +117,7 @@ const router = useRouter();
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px 0;
+      padding: 14px 0;
       letter-spacing: 1px;
       font-size: 16px;
       transition: all 0.3s ease;
