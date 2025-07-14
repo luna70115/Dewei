@@ -15,5 +15,6 @@ import Header from "../components/layout/header.vue";
   flex-direction: column;
   // height: 100vh;
   align-items: center;
+  overflow: auto;
 }
 </style>

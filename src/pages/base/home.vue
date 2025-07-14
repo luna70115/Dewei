@@ -1,8 +1,50 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { Dropdown, Ripple, initMDB } from "mdb-ui-kit";
-import "mdb-ui-kit/css/mdb.min.css";
+import { getImageUrl } from "@/utils/getImageUrl";
 
+import "mdb-ui-kit/css/mdb.min.css";
+// import { Vue3Marquee } from "vue3-marquee";
+
+//軟體使用企業變數
+const companies = [
+  {
+    name: "Hitachi",
+    link: "https://hitachi-homeappliances.com.tw/",
+    image: "company1.jpg",
+    duration: 1000
+  },
+  {
+    name: "Toyota",
+    link: "https://www.toyota.com.tw/showroom/COROLLA_CROSS?gad_source=1&gad_campaignid=14073708874&gbraid=0AAAAADkWlksY_4xpNeVjjs4A3UkdTJtx2&gclid=CjwKCAjw1dLDBhBoEiwAQNRiQXbdmRwdg43IU5Xry5lbUU07VfBiLbn0n8J9aTuRvgemD74DWkdzDxoCsGkQAvD_BwE",
+    image: "company2.jpg",
+    duration: 1400
+  },
+  {
+    name: "Huawei",
+    link: "https://consumer.huawei.com/tw/",
+    image: "company3.jpg",
+    duration: 1800
+  },
+  {
+    name: "Ricoh",
+    link: "https://www.ricoh.com.tw/",
+    image: "company4.jpg",
+    duration: 2200
+  },
+  {
+    name: "Husqvarna",
+    link: "https://husqvarnataiwan.com.tw/",
+    image: "company5.jpg",
+    duration: 2600
+  },
+  {
+    name: "Ericsson",
+    link: "https://www.ericsson.com/en",
+    image: "company6.jpg",
+    duration: 3000
+  }
+];
 onMounted(() => {
   initMDB({ Dropdown, Ripple });
 });
@@ -23,17 +65,20 @@ onMounted(() => {
     ></iframe>
     <div class="home-video-content">
       <div class="home-video-content-box">
-        <h1>迪威科技 IronCAD 台灣首位總代理</h1>
+        <h1>台灣首位 IronCAD 總代理，15 年專業經驗，市值得信賴的首選！</h1>
         <h2>
-          作為 IronCAD
-          在台灣的首位總代理與最大代理商，我們擁有最堅強的專業團隊，掌握原廠同步的技術實力，並具備獨家
-          API
-          二次開發能力，協助企業量身打造專屬的設計流程，自動化操作、無痛轉換舊有平台，真正做到設計效率最大化。
+          <strong class="home-video-content-strong"> 迪威科技</strong>
+          作為 IronCAD 在台灣的第一個正式總代理，我們已深耕市場超過
+          <strong>15</strong>
+
+          年，是目前規模最大、經驗最完整的專業團隊。
+          我們不只提供原廠同步技術支援，
+
+          <strong> 更具備全台唯一 IronCAD API 二次開發實力</strong>
+          ，能依企業需求 量身打造設計流程、導入自動化操作、無痛轉換舊有平台，
+          真正實現從設計到製造的高效整合，幫助客戶大幅提升研發效率與競爭力。
         </h2>
-        <h2>CAD/CAM/CAE/PDM</h2>
-        <h2>獨家API客製化軟體開發</h2>
-        <p>– IronCAD直覺式3D建模，創新且高度自由的設計方式，提升設計效率</p>
-        <p>– 永久授權買斷，大幅降低成本</p>
+
         <p>– 迪威科技專業技術團隊提供完善的教育訓練與技術支援</p>
       </div>
       <div class="home-video-btn">
@@ -80,10 +125,164 @@ onMounted(() => {
       <button>獲取更多信息</button>
     </div>
   </section>
+
+  <!--優勢列表-->
+  <section class="home-advantages">
+    <div class="home-advantages-img">
+      <img src="@/assets/images/meeting.png" alt="" />
+      <img src="@/assets/images/meeting2.png" alt="" />
+    </div>
+    <div class="home-advantages-card">
+      <div class="home-advantages-box" data-aos="fade-right">
+        <i class="bi bi-file-earmark-code"></i>
+        <div>
+          <h1>依照客戶需求，API客製化</h1>
+          <p>
+            迪威擁有資歷豐富的工程師專門設計二次開發，致力於研發提高效率及高穩定性的API程式，擁有許多客戶成功案例
+            !
+          </p>
+        </div>
+      </div>
+      <div class="home-advantages-box" data-aos="fade-left">
+        <i class="bi bi-cash-coin"></i>
+        <div>
+          <h1>經濟實惠，入門簡單，功能強大</h1>
+          <p>
+            IronCAD 提供彈性授權方案，讓設計團隊以合理成本導入高階功能，
+            不需長時間訓練，即可上手，新手也能快速成為高手！
+          </p>
+        </div>
+      </div>
+      <div class="home-advantages-box" data-aos="fade-right">
+        <i class="bi bi-brush"></i>
+        <div>
+          <h1>設計即展示，讓銷售與客戶一眼看懂</h1>
+          <p>
+            即時視覺化呈現，非設計人員也能輕鬆操作與展示，
+            不只幫助設計，更成為銷售最有力的助攻！促進跨部門溝通，加速決策與成交！
+          </p>
+        </div>
+      </div>
+      <div class="home-advantages-box" data-aos="fade-left">
+        <i class="bi bi-clock-history"></i>
+        <div>
+          <h1>全面提升工作效率，從概念到量產更快一步</h1>
+          <p>
+            集成多種智慧工具，搭配人性化介面，從發想到建模、從設計到製造，
+            IronCAD 全面加速每個環節，讓設計師專注創意、不再為工具分心！
+          </p>
+        </div>
+      </div>
+      <div class="home-advantages-box" data-aos="fade-right">
+        <i class="bi bi-arrow-repeat"></i>
+        <div>
+          <h1>無痛資料交換，整合無礙</h1>
+          <p>
+            同時支援 ACIS 和 Parasolid 兩大核心引擎， 完美匯入各式 3D CAD
+            檔案格式（如 SolidWorks、Inventor、STEP
+            等），重複使用與再設計都簡單無縫！
+          </p>
+        </div>
+      </div>
+      <div class="home-advantages-box" data-aos="fade-left">
+        <i class="bi bi-clipboard2-data"></i>
+        <div>
+          <h1>節省設計時間，靈感無限延伸</h1>
+          <p>
+            拖放式設計搭配預設特徵與零件目錄資料庫，幾何變化一指搞定！
+            只需輕鬆拖曳，即可快速建構或客製複雜模型，加速設計週期，靈感所至，立即呈現！
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--軟體使用企業-->
+  <section class="home-company">
+    <h1>全球知名 IronCAD 使用者</h1>
+    <h2>
+      來自製造業、工程、產品設計等多元產業的企業，透過 IronCAD
+      大幅提升設計效率、加快產品上市時程，並有效降低開發與生產成本。
+    </h2>
+    <div>
+      <a
+        v-for="(company, index) in companies"
+        :key="index"
+        :href="company.link"
+        target="_blank"
+      >
+        <img
+          :src="getImageUrl(company.image)"
+          :alt="company.name"
+          data-aos="flip-up"
+          :data-aos-duration="company.duration"
+        />
+      </a>
+    </div>
+  </section>
+
+  <!--統計數據-->
+  <section class="home-statistics">
+    <h1>IronCAD統計數據</h1>
+    <div class="home-statistics-card">
+      <div
+        class="home-statistics-box"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h2>50%</h2>
+        <p>設計時間縮短達</p>
+      </div>
+      <div
+        class="home-statistics-box"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+      >
+        <h2>90%</h2>
+        <p>高達 90% 的使用者表示學習門檻低、上手快</p>
+      </div>
+
+      <div
+        class="home-statistics-box"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h2>2 倍</h2>
+        <p>整體專案效率提升 2 倍以上</p>
+      </div>
+      <div
+        class="home-statistics-box"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+      >
+        <h2>20 萬</h2>
+        <p>超過 20 萬設計師信賴</p>
+      </div>
+      <div
+        class="home-statistics-box"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h2>40%</h2>
+        <p>平均導入成本比傳統 CAD 軟體低 40% 以上</p>
+      </div>
+      <div
+        class="home-statistics-box"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+      >
+        <h2>50+國</h2>
+        <p>全球已有 50+ 國使用中</p>
+      </div>
+    </div>
+  </section>
+
   <!--迪威介紹-->
   <section class="home-info">
     <div class="home-info-overlay"></div>
-    <!-- <h1>關於迪威科技</h1> -->
+    <h1>關於迪威科技</h1>
     <div>
       <p>
         迪威科技為 IronCAD
@@ -98,45 +297,6 @@ onMounted(() => {
         IronCAD
         系統，展現我們在大型專案管理、技術整合與客戶支援上的卓越實力，是值得信賴的長期合作夥伴。
       </p>
-    </div>
-  </section>
-  <!--優勢列表-->
-  <section class="home-advantages">
-    <img src="@/assets/images/meeting.png" alt="" />
-    <div class="home-advantages-card">
-      <div class="home-advantages-box">
-        <i class="bi bi-file-earmark-code"></i>
-        <div>
-          <h1>API客製化</h1>
-          <p>
-            迪威擁有資歷豐富的工程師專門設計二次開發，致力於研發提高效率及高穩定性的API程式，擁有許多客戶成功案例
-            !
-          </p>
-        </div>
-      </div>
-      <div class="home-advantages-box">
-        <i class="bi bi-file-earmark-code"></i>
-        <div>
-          <h1>API客製化</h1>
-          <p>
-            已開發多達20項專業功能，提供設計者有效率更聰明的設計工具，提升您的創造力！
-          </p>
-        </div>
-      </div>
-      <div class="home-advantages-box">
-        <i class="bi bi-file-earmark-code"></i>
-        <div>
-          <h1>API客製化</h1>
-          <p>API客製化API客製化API客製化API客製化</p>
-        </div>
-      </div>
-      <div class="home-advantages-box">
-        <i class="bi bi-file-earmark-code"></i>
-        <div>
-          <h1>API客製化</h1>
-          <p>API客製化API客製化API客製化API客製化</p>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -206,15 +366,26 @@ onMounted(() => {
   padding: 30px;
   gap: 10px;
   h1 {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
   }
   h2 {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    strong {
+      color: rgb(172 143 86);
+    }
+  }
+  &-strong {
+    font-size: 30px;
+    @include MQ(t768) {
+      font-size: 3vw;
+    }
   }
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
   &-box {
     display: flex;
@@ -240,7 +411,7 @@ onMounted(() => {
       font-size: 5vw;
     }
     h2 {
-      font-size: 2.8vw;
+      font-size: 2vw;
     }
     p {
       font-size: 1.8vw;
@@ -364,7 +535,7 @@ onMounted(() => {
   h1 {
     position: relative;
     z-index: 2;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
     padding: 10px;
     border-bottom: 1px solid rgb(205, 205, 205);
@@ -387,15 +558,30 @@ onMounted(() => {
 }
 .home-advantages {
   display: flex;
+  width: 100%;
+  &-img {
+    display: flex;
+    flex-direction: column;
+  }
   img {
-    width: 50%;
+    max-height: 400px;
     object-fit: contain;
+    @include MQ(t768) {
+      display: none;
+    }
   }
   &-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
+    background: black;
+
+    @include MQ(t768) {
+      gap: 3vw;
+      background: black;
+      padding: 3vw;
+    }
   }
   &-box {
     display: flex;
@@ -404,22 +590,138 @@ onMounted(() => {
     gap: 20px;
     width: 100%;
     padding: 20px;
+    color: #fff;
+
+    @include MQ(t768) {
+      border: 1px solid #fff;
+      border-radius: 10px;
+    }
     div {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
     i {
-      font-size: 50px;
+      font-size: 40px;
     }
     h1 {
-      font-size: 30px;
+      font-size: 20px;
       font-weight: 700;
     }
     p {
       line-height: 1.5;
       letter-spacing: 1px;
       font-size: 12px;
+    }
+  }
+}
+.home-company {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  font-weight: 500;
+  padding: 40px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  @include MQ(t768) {
+    padding: 4vw;
+  }
+
+  h1 {
+    font-size: 40px;
+    @include MQ(t768) {
+      font-size: 6vw;
+    }
+  }
+  h2 {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    @include MQ(t768) {
+      font-size: 2vw;
+    }
+  }
+  div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    @include MQ(t768) {
+      gap: 2vw;
+    }
+  }
+
+  img {
+    width: 100px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    @include MQ(t768) {
+      width: 18vw;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.home-statistics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px;
+  gap: 40px;
+  @include MQ(t768) {
+    padding: 4vw;
+    gap: 20px;
+  }
+  &-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    @include MQ(t768) {
+      width: 100%;
+      height: 18vw;
+    }
+  }
+  &-card {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 20px;
+    @include MQ(t768) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
+      gap: 4vw;
+    }
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+    @include MQ(t768) {
+      font-size: 6vw;
+    }
+  }
+  h2 {
+    font-size: 36px;
+    @include MQ(t768) {
+      font-size: 5vw;
+    }
+  }
+  p {
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    @include MQ(t768) {
+      font-size: 2vw;
+      width: 80%;
     }
   }
 }
