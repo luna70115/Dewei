@@ -15,12 +15,15 @@ export default defineConfig(({ mode }) => {
   const currentEnvStyle = env.VITE_STYLE_ENV || "base";
   const currentEnvTemplate = env.VITE_TEMPLATE_ENV || "base";
   // 僅提取以 VITE_ 開頭的環境變數
-  const viteEnv = Object.keys(env)
+  const viteEnv: Record<string, string> = Object.keys(env)
     .filter((key) => key.startsWith("VITE_"))
-    .reduce((acc, key) => {
-      acc[key] = env[key];
-      return acc;
-    }, {});
+    .reduce(
+      (acc, key) => {
+        acc[key] = env[key];
+        return acc;
+      },
+      {} as Record<string, string>
+    );
 
   // 在控制台輸出當前模式及載入的 VITE_ 開頭環境變數，便於調試
   console.log("當前模式:", mode);
@@ -29,7 +32,7 @@ export default defineConfig(({ mode }) => {
   console.log("當前載入全域樣式:", env.VITE_STYLE_ENV);
 
   return {
-    base: "./",
+    base: viteEnv.VITE_BASE || "./",
     envDir: "./env", // 指定環境變數文件的目錄
     plugins: [
       // Vue 插件，用於支援 Vue 單文件組件

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:temp": "vite --mode temp",
-    "build": "vite build",
+  "build": "vite build --mode production",
     "preview": "vite preview",
     "prepare": "husky",
     "commit": "git-cz",
