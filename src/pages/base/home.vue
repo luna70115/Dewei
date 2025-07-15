@@ -2,47 +2,48 @@
 import { onMounted } from "vue";
 import { Dropdown, Ripple, initMDB } from "mdb-ui-kit";
 import { getImageUrl } from "@/utils/getImageUrl";
-
 import "mdb-ui-kit/css/mdb.min.css";
+import { Swiper, SwiperSlide } from "swiper/vue";
+// Swiper modules
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
+// 提供給 <Swiper> 使用的模組
+const modules = [Autoplay, Pagination];
 // import { Vue3Marquee } from "vue3-marquee";
-
-//軟體使用企業變數
+const date = new Date();
+const year = date.getFullYear();
+const DimensionWayYear = year - 2010;
 const companies = [
   {
     name: "Hitachi",
     link: "https://hitachi-homeappliances.com.tw/",
-    image: "company1.jpg",
-    duration: 1000
+    image: "company1.jpg"
   },
   {
     name: "Toyota",
     link: "https://www.toyota.com.tw/showroom/COROLLA_CROSS?gad_source=1&gad_campaignid=14073708874&gbraid=0AAAAADkWlksY_4xpNeVjjs4A3UkdTJtx2&gclid=CjwKCAjw1dLDBhBoEiwAQNRiQXbdmRwdg43IU5Xry5lbUU07VfBiLbn0n8J9aTuRvgemD74DWkdzDxoCsGkQAvD_BwE",
-    image: "company2.jpg",
-    duration: 1400
+    image: "company2.jpg"
   },
   {
     name: "Huawei",
     link: "https://consumer.huawei.com/tw/",
-    image: "company3.jpg",
-    duration: 1800
+    image: "company3.jpg"
   },
   {
     name: "Ricoh",
     link: "https://www.ricoh.com.tw/",
-    image: "company4.jpg",
-    duration: 2200
+    image: "company4.jpg"
   },
   {
     name: "Husqvarna",
     link: "https://husqvarnataiwan.com.tw/",
-    image: "company5.jpg",
-    duration: 2600
+    image: "company5.jpg"
   },
   {
     name: "Ericsson",
     link: "https://www.ericsson.com/en",
-    image: "company6.jpg",
-    duration: 3000
+    image: "company6.jpg"
   }
 ];
 onMounted(() => {
@@ -65,11 +66,16 @@ onMounted(() => {
     ></iframe>
     <div class="home-video-content">
       <div class="home-video-content-box">
-        <h1>台灣首位 IronCAD 總代理，15 年專業經驗，市值得信賴的首選！</h1>
+        <h1>
+          台灣首位 IronCAD 總代理，{{ DimensionWayYear }}
+          年專業經驗，市值得信賴的首選！
+        </h1>
         <h2>
           <strong class="home-video-content-strong"> 迪威科技</strong>
           作為 IronCAD 在台灣的第一個正式總代理，我們已深耕市場超過
-          <strong>15</strong>
+          <strong class="home-video-content-strong">{{
+            DimensionWayYear
+          }}</strong>
 
           年，是目前規模最大、經驗最完整的專業團隊。
           我們不只提供原廠同步技術支援，
@@ -78,8 +84,6 @@ onMounted(() => {
           ，能依企業需求 量身打造設計流程、導入自動化操作、無痛轉換舊有平台，
           真正實現從設計到製造的高效整合，幫助客戶大幅提升研發效率與競爭力。
         </h2>
-
-        <p>– 迪威科技專業技術團隊提供完善的教育訓練與技術支援</p>
       </div>
       <div class="home-video-btn">
         <button>IronCAD免費試用</button>
@@ -196,108 +200,196 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <!--軟體使用企業-->
-  <section class="home-company">
-    <h1>全球知名 IronCAD 使用者</h1>
-    <h2>
-      來自製造業、工程、產品設計等多元產業的企業，透過 IronCAD
-      大幅提升設計效率、加快產品上市時程，並有效降低開發與生產成本。
-    </h2>
-    <div>
-      <a
-        v-for="(company, index) in companies"
-        :key="index"
-        :href="company.link"
-        target="_blank"
-      >
-        <img
-          :src="getImageUrl(company.image)"
-          :alt="company.name"
-          data-aos="flip-up"
-          :data-aos-duration="company.duration"
-        />
-      </a>
+
+  <section class="home-mixCard">
+    <!--軟體使用企業-->
+    <div class="home-company">
+      <h1>全球知名使用者</h1>
+      <!-- <h2>
+        來自製造業、工程、產品設計等多元產業的企業，透過 IronCAD
+        大幅提升設計效率、加快產品上市時程，並有效降低開發與生產成本。
+      </h2> -->
+      <div>
+        <a
+          v-for="(company, index) in companies"
+          :key="index"
+          :href="company.link"
+          target="_blank"
+        >
+          <img :src="getImageUrl(company.image)" :alt="company.name" />
+        </a>
+      </div>
     </div>
-  </section>
 
-  <!--統計數據-->
-  <section class="home-statistics">
-    <h1>IronCAD統計數據</h1>
-    <div class="home-statistics-card">
-      <div
-        class="home-statistics-box"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
-        <h2>50%</h2>
-        <p>設計時間縮短達</p>
-      </div>
-      <div
-        class="home-statistics-box"
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1000"
-      >
-        <h2>90%</h2>
-        <p>高達 90% 的使用者表示學習門檻低、上手快</p>
-      </div>
+    <!--統計數據-->
+    <div class="home-statistics">
+      <h1>IronCAD統計數據</h1>
+      <div class="home-statistics-card">
+        <div class="home-statistics-box">
+          <h2>50%</h2>
+          <p>設計時間縮短達</p>
+        </div>
+        <div class="home-statistics-box">
+          <h2>90%</h2>
+          <p>高達 90% 的使用者表示學習門檻低、上手快</p>
+        </div>
 
-      <div
-        class="home-statistics-box"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
-        <h2>2 倍</h2>
-        <p>整體專案效率提升 2 倍以上</p>
-      </div>
-      <div
-        class="home-statistics-box"
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1000"
-      >
-        <h2>20 萬</h2>
-        <p>超過 20 萬設計師信賴</p>
-      </div>
-      <div
-        class="home-statistics-box"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
-        <h2>40%</h2>
-        <p>平均導入成本比傳統 CAD 軟體低 40% 以上</p>
-      </div>
-      <div
-        class="home-statistics-box"
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1000"
-      >
-        <h2>50+國</h2>
-        <p>全球已有 50+ 國使用中</p>
+        <div class="home-statistics-box">
+          <h2>2 倍</h2>
+          <p>整體專案效率提升 2 倍以上</p>
+        </div>
+        <div class="home-statistics-box">
+          <h2>20 萬</h2>
+          <p>超過 20 萬設計師信賴</p>
+        </div>
+        <div class="home-statistics-box">
+          <h2>40%</h2>
+          <p>平均導入成本比傳統 CAD 軟體低 40% 以上</p>
+        </div>
+        <div class="home-statistics-box">
+          <h2>50+國</h2>
+          <p>全球已有 50+ 國使用中</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!--迪威介紹-->
+  <!--服務內容-->
+  <section class="home-news">
+    <div class="home-news-card">
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news1.jpg" alt="" />
+        <div>
+          <h1>迪威科技攜手IronCAD原廠，實地走訪五家台灣大型用戶</h1>
+          <p>
+            IronCAD創辦人- 韓道暘博士 與迪威科技實地走訪五家台灣大型用戶
+            迪威科技非常榮幸邀請IronCAD, LLC創辦人
+            韓道暘博士，與迪威科技現有客戶實地訪談，拜訪各家公司董事長及設計單位，分享IronCAD軟體未來展望，傾聽使用單位對於IronCAD使用反饋，並提供解決方案。
+            除此…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news2.jpg" alt="" />
+        <div>
+          <h1>IronCAD 第二屆創新設計比賽</h1>
+          <p>
+            2024年10月26日 —
+            由迪威科技主辦的「第二屆IronCAD創新設計獎」於今日圓滿落幕。本次比賽吸引了來自全台各大專院校的近30支隊伍踴躍報名，經過初賽篩選，最終有10支優秀團隊脫穎而出，於嘉義長榮文苑酒店進行決賽。
+            近年來，由迪威科技所代理的IronCAD在業界市場的成…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news3.jpg" alt="" />
+        <div>
+          <h1>迪威科技成功開發AI技術客服</h1>
+          <p>
+            迪威科技成功開發AI技術客服
+            迪威科技成功開發AI客服技術，這是公司策略發展的一大步。這項新技術的加入不僅將加強我們對現有客戶的支持，更會提升整體服務效率，進一步鞏固我們在業界的領先地位。
+            技術創新 我們的AI客服系統採用最先進的機器學習和自然語言處理技術，…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news4.jpg" alt="" />
+        <div>
+          <h1>迪威科技成功促成IronCAD論文獎</h1>
+          <p>
+            迪威科技 – IronCAD 論文獎
+            迪威科技長期致力於將最先進的3D設計工具引入教育領域的公司，近年來在教育界的深耕終於取得顯著成果，成功促成了IronCAD論文獎的設立。這項獎項旨在鼓勵學生深入學習和探索IronCAD軟體，並通過創新的設計解決方案展現其應用能力。此…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news5.jpg" alt="" />
+        <div>
+          <h1>迪威科技成功導入IronCAD進入逢甲大學</h1>
+          <p>
+            迪威科技成功導入IronCAD進入逢甲大學
+            迪威科技自成立以來，一直致力於將先進的設計軟體技術推廣至各行各業，其中，對於教育領域的貢獻尤為顯著。在這個過程中，迪威科技與台灣知名的逢甲大學展開了深入合作，將IronCAD這一強大的3D設計工具成功引入校園，開創了學術與…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news6.jpg" alt="" />
+        <div>
+          <h1>迪威科技獲獎IronCAD最佳銷售獎</h1>
+          <p>
+            迪威科技榮獲最佳銷售成長獎
+            在2023年舉行的IronCAD全球高峰會上，一場盛大的晚宴吸引了眾人的目光。這一夜，由IronCAD創辦人及CEO韓道暘博士主持的頒獎儀式上，迪威科技被榮膺「2022-2023年度IronCAD最佳銷售成長」，這一榮譽旨在表彰迪威科技在銷售IronCAD方面取得的…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news7.jpg" alt="" />
+        <div>
+          <h1>IronCAD 2025 10大新功能介紹</h1>
+          <p>
+            What’s New in IronCAD 2025 IronCAD 2025 十大新功能
+            迪威科技非常榮幸的向各位宣布，IronCAD2025正式推出!
+            IronCAD2025包含了許多創新且高效的新功能、強化了軟體效能表現以及全新的功能模組，全面提升設計效率與創新的可能性。
+            迪威科技作為IronCAD台灣最佳代…
+          </p>
+        </div>
+      </div>
+      <div class="home-news-box">
+        <img src="@/assets/images/home-news8.jpg" alt="" />
+        <div>
+          <h1>IronCAD DCS 2025 的 PU1 更新現已正式發布！</h1>
+          <p>
+            IronCAD DCS 2025 的 PU1 更新現已正式發布！ IronCAD 2025 產品更新 1
+            包含一系列新功能和增強功能，旨在提高您設計流程的效率、靈活性和準確性。此版本包含各個模組的重大更新，確保使用者能夠利用最新的工具和功能來優化工作流程。
+            此次更新最突出的新功能之一是管…
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 迪威介紹 -->
   <section class="home-info">
-    <div class="home-info-overlay"></div>
-    <h1>關於迪威科技</h1>
-    <div>
-      <p>
-        迪威科技為 IronCAD
-        台灣區最具規模的核心夥伴，擁有深厚的技術底蘊與完整的服務體系。我們致力於提供先進的
-        3D
-        設計解決方案，協助企業快速升級設計流程，強化產品開發效能，全面提升競爭力。透過完善的在地支援與顧問式導入服務，我們成為台灣製造業邁向數位轉型的重要推手。
-      </p>
-      <p>
-        我們擁有專業的導入經驗與獨家二次開發技術，能將客戶既有平台的 API
-        無縫轉移至
-        IronCAD，確保系統穩定且快速上手。成功協助台達電等大型企業導入逾 250 套
+    <h1>DimensionWay</h1>
+    <img src="@/assets/images/dimensionWay-logo.png" alt="" />
+    <swiper
+      :modules="modules"
+      class="home-swiper"
+      :pagination="{
+        dynamicBullets: true
+      }"
+      :autoplay="{
+        delay: 5000, // 每 3 秒輪播一次
+        disableOnInteraction: false // 使用者互動後仍繼續自動播放
+      }"
+      loop
+    >
+      <swiper-slide class="home-swiper-slide">
+        迪威科技深耕 3D 設計領域超過
+        {{ DimensionWayYear }} 年，為台灣唯一同時提供北中南全區技術支援的
         IronCAD
-        系統，展現我們在大型專案管理、技術整合與客戶支援上的卓越實力，是值得信賴的長期合作夥伴。
-      </p>
-    </div>
+        核心代理商。從銷售、培訓到客製開發，提供一站式全方位服務，是您邁向數位轉型的最佳夥伴。</swiper-slide
+      >
+      <swiper-slide class="home-swiper-slide"
+        >迪威科技擁有一支經驗豐富的工程師團隊，提供 獨家 API
+        二次開發技術，免費贈送給購買用戶，讓您的 IronCAD
+        軟體與企業流程完美整合、效能再進化！</swiper-slide
+      ><swiper-slide class="home-swiper-slide"
+        >包括台達電在內的眾多大型企業，皆選擇由迪威科技導入 IronCAD。超過 250
+        套系統的成功部署，證明我們在 專案管理、平台轉移與技術整合
+        方面的領先實力，是您值得託付的長期合作夥伴。</swiper-slide
+      >
+      <swiper-slide class="home-swiper-slide"
+        >迪威科技設有台北、台中、台南辦公室，即時提供技術支援與教育訓練。無論您在哪個城市，我們都能在第一時間幫您解決問題，讓您專注設計、穩健生產。</swiper-slide
+      ><swiper-slide class="home-swiper-slide"
+        >無論您是設計師、工程單位，還是企業團隊，迪威科技都能依據需求提供
+        顧問式導入服務與完整培訓課程，快速提升 IronCAD
+        操作效率與設計能力。</swiper-slide
+      >
+      <swiper-slide class="home-swiper-slide"
+        >IronCAD 是全球頂尖的 3D
+        工業設計工具，**選對代理，事半功倍！**迪威科技不只是銷售軟體，更提供完整解決方案，協助您加速設計流程、強化團隊競爭力，全面升級您的產品開發能力。</swiper-slide
+      >
+    </swiper>
   </section>
 </template>
 
@@ -519,41 +611,42 @@ onMounted(() => {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 60px;
+  padding: 100px 60px;
   gap: 20px;
-  background-image: url("@/assets/images/home-info.jpg");
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  &-overlay {
-    position: absolute;
-    inset: 0;
-
-    background-color: rgba(20, 20, 20, 0.7); /* 深藍半透明遮罩 */
-    z-index: 1;
+  @include MQ(t768) {
+    padding: 8vw 4vw;
+    gap: 6vw;
+  }
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 50%;
+    padding: 10px;
+    @include MQ(t768) {
+      width: 14vw;
+      height: 14vw;
+    }
   }
   h1 {
-    position: relative;
-    z-index: 2;
-    font-size: 36px;
-    font-weight: 700;
-    padding: 10px;
-    border-bottom: 1px solid rgb(205, 205, 205);
-    color: #fff;
+    font-size: 50px;
+    font-weight: 500;
+    font-family: "Playfair", serif;
+    font-weight: 600;
+    @include MQ(t768) {
+      font-size: 8vw;
+    }
   }
   div {
     display: flex;
     gap: 20px;
-    @include MQ(t768) {
-      flex-direction: column;
-    }
   }
   p {
     position: relative;
     z-index: 2;
     line-height: 1.8;
     font-size: 14px;
-    color: #fff;
   }
 }
 .home-advantages {
@@ -615,24 +708,43 @@ onMounted(() => {
     }
   }
 }
+.home-mixCard {
+  display: flex;
+  justify-content: space-around;
+  padding: 80px 40px;
+  width: 100%;
+  gap: 20px;
+  div {
+    max-width: 400px;
+    @include MQ(t768) {
+      max-width: 100%;
+    }
+  }
+  @include MQ(t768) {
+    flex-direction: column;
+    padding: 4vw;
+    gap: 6vw;
+  }
+}
 .home-company {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  width: 100%;
+  gap: 40px;
+  width: 50%;
   font-weight: 500;
-  padding: 40px;
-  border-bottom: 1px solid rgb(205, 205, 205);
   @include MQ(t768) {
-    padding: 4vw;
+    width: 100%;
+    gap: 4vw;
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 1px;
     @include MQ(t768) {
-      font-size: 6vw;
+      font-size: 5vw;
     }
   }
   h2 {
@@ -645,12 +757,15 @@ onMounted(() => {
     }
   }
   div {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
     width: 100%;
+    gap: 20px;
     @include MQ(t768) {
       gap: 2vw;
+    }
+    a {
+      text-align: center;
     }
   }
 
@@ -669,21 +784,19 @@ onMounted(() => {
 }
 .home-statistics {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  padding: 40px;
+  width: 50%;
   gap: 40px;
   @include MQ(t768) {
-    padding: 4vw;
-    gap: 20px;
+    gap: 6vw;
+    width: 100%;
   }
   &-box {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     @include MQ(t768) {
       width: 100%;
@@ -691,21 +804,24 @@ onMounted(() => {
     }
   }
   &-card {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
+    flex-wrap: wrap;
     width: 100%;
     gap: 20px;
     @include MQ(t768) {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
+      grid-template-columns: repeat(2, 1fr); /* 每列兩欄 */
       gap: 4vw;
     }
   }
   h1 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
+    letter-spacing: 1px;
+
     @include MQ(t768) {
-      font-size: 6vw;
+      font-size: 5vw;
     }
   }
   h2 {
@@ -723,6 +839,104 @@ onMounted(() => {
       font-size: 2vw;
       width: 80%;
     }
+  }
+}
+.home-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+    @include MQ(t768) {
+      font-size: 6vw;
+    }
+  }
+  &-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
+    width: 100%;
+    @include MQ(d1366) {
+      grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
+    }
+
+    @include MQ(d1120) {
+      grid-template-columns: repeat(2, 1fr); /* 每列一欄 */
+    }
+  }
+  &-box {
+    position: relative; // 讓子元素絕對定位的參考點
+    overflow: hidden; // 避免放大後溢位
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+
+    img,
+    p {
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      object-fit: cover;
+      display: block;
+    }
+
+    div {
+      opacity: 0; // 預設隱藏
+      position: absolute;
+      top: 0;
+      left: 0;
+      gap: 40px;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.8); // 半透明遮罩
+      color: #fff;
+      padding: 30px;
+      h1 {
+        position: relative;
+        font-size: 20px;
+        text-align: center;
+      }
+      p {
+        letter-spacing: 1px;
+        line-height: 1.5;
+        text-align: center;
+        height: auto;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+        z-index: 1;
+      }
+      div {
+        opacity: 1; // 文字淡入
+        z-index: 2;
+      }
+    }
+  }
+}
+.home-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.home-swiper-slide {
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  height: 140px;
+  @include MQ(t768) {
+    font-size: 2.8vw;
+    height: 20vw;
   }
 }
 </style>
