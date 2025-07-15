@@ -1,174 +1,177 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 const router = useRouter();
 </script>
 
 <template>
   <header class="header">
     <img src="@/assets/images/logo.png" alt="" @click="router.push('/')" />
-    <div class="header-card">
-      <div class="header-box dropDown">
-        <a href="" class="">About</a>
-        <ul>
-          <li><a href="">3D設計</a></li>
-          <li><a href="">Draft2D工程圖</a></li>
-          <li><a href="">授權方式</a></li>
-        </ul>
-      </div>
-      <div class="header-box"><a href="">NEWS</a></div>
 
-      <div class="header-box dropDown">
-        <a href="">ADD-ON</a>
-        <ul>
-          <li><a href="">Mechanical</a></li>
-          <li><a href="">Keyshot</a></li>
-          <li><a href="">MultiPhysics</a></li>
-          <li><a href="">Translator</a></li>
+    <nav class="header-nav">
+      <div class="header-nav-item">
+        <a href="#" class="header-arrow">About</a>
+        <ul class="header-dropdown">
+          <li><a href="#">3D設計</a></li>
+          <li><a href="#">Draft2D工程圖</a></li>
+          <li><a href="#">授權方式</a></li>
         </ul>
       </div>
-      <div class="header-box"><a href="">Solidworks</a></div>
-      <div class="header-box dropDown">
-        <a href="">ENCYCAM</a>
-        <ul>
-          <li><a href="">2.5和3軸銑削</a></li>
-          <li><a href="">4軸同動銑削</a></li>
-          <li><a href="">5軸同動銑削</a></li>
-          <li><a href="">車床加工</a></li>
+      <div class="header-nav-item">
+        <a href="#">NEWS</a>
+      </div>
+      <div class="header-nav-item">
+        <a href="#" class="header-arrow">ADD-ON</a>
+        <ul class="header-dropdown">
+          <li><a href="#">Mechanical</a></li>
+          <li><a href="#">Keyshot</a></li>
+          <li><a href="#">MultiPhysics</a></li>
+          <li><a href="#">Translator</a></li>
         </ul>
       </div>
-      <div class="header-box"><a href="">API</a></div>
-      <div class="header-box">
-        <a href=""> <a href="">Courses</a> </a>
+      <div class="header-nav-item">
+        <a href="#">NEWS</a>
       </div>
-    </div>
-    <div class="md-header-card">
-      <i class="fab fa-youtube"></i> <i class="fab fa-facebook"></i>
-      <i class="fas fa-headset"></i><i class="fas fa-align-justify"></i>
-    </div>
+      <div class="header-nav-item">
+        <a href="#" class="header-arrow">ENCYCAM</a>
+        <ul class="header-dropdown">
+          <li><a href="#">2.5和3軸銑削</a></li>
+          <li><a href="#">4軸同動銑削</a></li>
+          <li><a href="#">5軸同動銑削</a></li>
+          <li><a href="#">車床加工</a></li>
+        </ul>
+      </div>
+      <div class="header-nav-item">
+        <a href="#">API</a>
+      </div>
+      <div class="header-nav-item">
+        <a href="#">Courses</a>
+      </div>
+    </nav>
+    <nav class="header-mobile-nav">
+      <div>
+        <i class="bi bi-youtube"></i>
+        <i class="bi bi-facebook"></i><i class="bi bi-headset"></i>
+        <i class="bi bi-text-paragraph"></i>
+      </div>
+    </nav>
   </header>
 </template>
 
 <style scoped lang="scss">
-@keyframes arrowBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(4px); // 向下位移 4px，可依需求調整
-  }
-}
-
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 70px;
-  border-bottom: 1px solid rgb(0 0 0 / 9%);
-  color: #444;
-  font-size: 16px;
+  background: #f5f5f5;
+  font-family: "Playfair", serif;
+  font-size: 20px;
   font-weight: 500;
-  &-card {
+  img {
+    width: 120px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  &-nav {
     display: flex;
+    justify-content: end;
     height: 100%;
+    width: 100%;
     @include MQ(d1120) {
       display: none;
     }
   }
-  &-box {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 140px;
-    height: 100%;
-    cursor: pointer;
-    &:hover {
-      background: rgb(222, 222, 222);
-    }
-    &:hover ul {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    &:hover dropDown after {
-      transform: translateY(3px); // 向下滑動
-    }
-  }
-  img {
-    max-width: 120px;
-    width: 100%;
-    cursor: pointer;
-    margin-left: 20px;
-  }
-  ul {
-    display: block; // 重要：改用 block 搭配透明度隱藏，才能動畫
-    opacity: 0;
-    pointer-events: none; // 避免 hover 到下拉選單時立即消失
-    transition: opacity 0.4s ease;
-    position: absolute;
-    top: 70px;
-    background: rgb(146, 146, 146);
-    color: #fff;
-    width: 140px;
-    border-radius: 0 0 10px 10px;
-    z-index: 10;
-
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px 0;
-      letter-spacing: 1px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      &:hover {
-        font-size: 18px;
-        font-weight: 500;
+  &-mobile-nav {
+    display: none;
+    @include MQ(d1120) {
+      display: block;
+      div {
+        display: flex;
+        gap: 10px;
+        margin-right: 20px;
+      }
+      i {
+        font-size: 30px;
+        cursor: pointer;
       }
     }
-    li:not(:last-child) {
-      border-bottom: 1px solid #ccc; // 自行設定顏色
-    }
   }
 }
-.md-header-card {
-  display: none;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
+.header-nav-item {
+  position: relative;
   height: 100%;
-  margin-right: 20px;
-
-  i {
-    cursor: pointer;
-    font-size: 24px;
-    display: inline-block; // 動畫需要元素具備可轉換性
-    transform: translateY(0);
-    transition: transform 0.2s ease;
-    &:not(:last-of-type):hover {
-      transform: translateY(-10px);
-    }
+  width: 140px;
+  &:hover {
+    background: #e1e1e1;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    height: 100%;
   }
 
-  @include MQ(d1120) {
-    display: flex;
+  &:hover .header-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
-.dropDown {
+.header-dropdown {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background: #444;
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 140px;
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 100;
+  li {
+    text-align: center;
+    border-bottom: 1px solid #858585;
+    a {
+      display: block;
+      color: white;
+      padding: 14px 0;
+      text-decoration: none;
+      &:hover {
+        background: #555;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+.header-dropdown li:last-child a:hover {
+  border-radius: 0 0 8px 8px;
+}
+.header-arrow {
   &::after {
     content: "";
+    position: relative;
     display: inline-block;
-    margin-left: 10px;
-    vertical-align: middle;
     width: 0;
     height: 0;
+    margin-left: 10px;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #444; // 灰色向下箭頭
-    transform: translateY(0);
-  }
-  &:hover::after {
-    animation: arrowBounce 0.6s ease-in-out infinite;
+    border-top: 6px solid #444;
   }
 }
 </style>

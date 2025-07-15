@@ -227,7 +227,7 @@ onMounted(() => {
       <div class="home-statistics-card">
         <div class="home-statistics-box">
           <h2>50%</h2>
-          <p>設計時間縮短達</p>
+          <p>設計時間縮短達50%</p>
         </div>
         <div class="home-statistics-box">
           <h2>90%</h2>

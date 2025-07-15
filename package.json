@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "dev:temp": "vite --mode temp",
-  "build": "vite build --mode production",
+    "build": "vite build --mode production",
     "preview": "vite preview",
     "prepare": "husky",
     "commit": "git-cz",
-    "lint": "eslint . --ext .js,.ts,.vue"
+    "lint": "eslint . --ext .js,.ts,.vue",
+    "deploy": "vite build --mode production && git subtree push --prefix dist origin gh-pages"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue}": [
