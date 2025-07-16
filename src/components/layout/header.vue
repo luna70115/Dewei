@@ -12,7 +12,7 @@ const router = useRouter();
         <a href="#" class="header-arrow">About</a>
         <ul class="header-dropdown">
           <li><a href="#">3D設計</a></li>
-          <li><a href="#">Draft2D工程圖</a></li>
+          <li><a href="#">Draft2D</a></li>
           <li><a href="#">授權方式</a></li>
         </ul>
       </div>
@@ -65,7 +65,7 @@ const router = useRouter();
   width: 100%;
   height: 70px;
   background: #f5f5f5;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   img {
     width: 120px;
@@ -147,6 +147,8 @@ const router = useRouter();
       color: white;
       padding: 14px 0;
       text-decoration: none;
+      letter-spacing: 1px;
+      font-size: 18px;
       &:hover {
         background: #555;
       }

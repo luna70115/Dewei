@@ -456,7 +456,7 @@ onMounted(() => {
   height: 100%;
   color: #fff;
   padding: 30px;
-  gap: 10px;
+  gap: 30px;
   h1 {
     font-size: 36px;
     font-weight: 700;
@@ -612,7 +612,7 @@ onMounted(() => {
   flex-direction: column;
   width: 100%;
   padding: 100px 60px;
-  gap: 20px;
+  gap: 30px;
   @include MQ(t768) {
     padding: 8vw 4vw;
     gap: 6vw;
@@ -640,6 +640,7 @@ onMounted(() => {
   }
   div {
     display: flex;
+    justify-content: center;
     gap: 20px;
   }
   p {
@@ -798,6 +799,7 @@ onMounted(() => {
     flex-direction: column;
     min-width: 100px;
     height: 100px;
+    transition: all 0.3s ease;
     cursor: pointer;
     &:hover {
       transform: scale(1.1);
@@ -850,7 +852,6 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
   h1 {
     font-size: 40px;
     font-weight: 500;
@@ -858,10 +859,14 @@ onMounted(() => {
       font-size: 6vw;
     }
   }
+
   &-card {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
     width: 100%;
+    padding: 36px;
+    background: linear-gradient(135deg, #596670, #8d99ae, #edf2f4);
     @include MQ(d1366) {
       grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
     }
@@ -938,6 +943,7 @@ onMounted(() => {
   font-size: 20px;
   display: flex;
   height: 140px;
+  margin-top: 10px;
   @include MQ(t768) {
     font-size: 2.8vw;
     height: 20vw;

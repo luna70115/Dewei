@@ -67,7 +67,7 @@
   align-items: center;
   width: 100%;
   padding: 10px;
-  background: rgb(136, 136, 136);
+  background: rgb(166, 10, 10);
   color: #fff;
   font-size: 40px;
   font-family: "Playfair", serif;
@@ -123,6 +123,7 @@
   }
   i {
     font-size: 36px;
+    color: rgb(166, 10, 10);
   }
 }
 
@@ -131,7 +132,7 @@
   justify-content: space-between;
   background: #002633;
   color: #7697a2;
-  font-size: 8px;
+  font-size: 10px;
   padding: 20px;
   gap: 40px;
   line-height: 1.5;
