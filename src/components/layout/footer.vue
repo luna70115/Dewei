@@ -66,7 +66,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   background: rgb(136, 136, 136);
   color: #fff;
   font-size: 40px;

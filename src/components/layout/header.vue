@@ -65,7 +65,6 @@ const router = useRouter();
   width: 100%;
   height: 70px;
   background: #f5f5f5;
-  font-family: "Playfair", serif;
   font-size: 20px;
   font-weight: 500;
   img {

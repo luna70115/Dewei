@@ -513,7 +513,7 @@ onMounted(() => {
 .home-video-btn {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   @include MQ(d1120) {
     flex-direction: row;
   }
@@ -525,7 +525,7 @@ onMounted(() => {
     color: #fff;
     font-size: 20px;
     font-weight: 500;
-    min-width: 220px;
+    min-width: 230px;
     @include MQ(t768) {
       font-size: 2.8vw;
       padding: 1.6vw 2vw;
@@ -798,6 +798,10 @@ onMounted(() => {
     flex-direction: column;
     min-width: 100px;
     height: 100px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
     @include MQ(t768) {
       width: 100%;
       height: 18vw;
