@@ -13,30 +13,39 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
       <div class="footer-content-card">
-        <div class="footer-content-box">
-          <i class="bi bi-geo-alt"></i>
-          <div>
-            <p>台北區</p>
-            <p>02-2280-3598</p>
-            <p>新北市三重區永福街46巷41弄39號2F</p>
+        <div class="footer-content-block">
+          <div class="footer-content-box">
+            <i class="bi bi-geo-alt"></i>
+            <div>
+              <p>台北區</p>
+              <p>02-2280-3598</p>
+              <p>新北市三重區永福街46巷41弄39號2F</p>
+            </div>
+          </div>
+          <div class="footer-content-box">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>
+              <p>台中區 (總公司)</p>
+              <p>04-2359-8366</p>
+              <p>台中市西屯區工業區八路11號2F-3</p>
+            </div>
+          </div>
+          <div class="footer-content-box">
+            <i class="bi bi-geo-alt"></i>
+            <div>
+              <p>台南區</p>
+              <p>06-593-9589</p>
+              <p>台南市安南區義安街128巷15號</p>
+            </div>
           </div>
         </div>
-        <div class="footer-content-box">
-          <i class="bi bi-geo-alt-fill"></i>
-          <div>
-            <p>台中區 (總公司)</p>
-            <p>04-2359-8366</p>
-            <p>台中市西屯區工業區八路11號2F-3</p>
-          </div>
-        </div>
-        <div class="footer-content-box">
-          <i class="bi bi-geo-alt"></i>
-          <div>
-            <p>台南區</p>
-            <p>06-593-9589</p>
-            <p>台南市安南區義安街128巷15號</p>
-          </div>
-        </div>
+        <a
+          href="https://line.me/ti/p/0c2QX0e90c"
+          target="_blank"
+          class="footer-content-qrCode"
+        >
+          <img src="@/assets/images/qrCode.png" alt="" />
+        </a>
       </div>
     </div>
     <div class="footer-footer">
@@ -51,7 +60,6 @@
         <p>
           本網站所提及之商標，商標名稱或公司名稱僅用於識別，其所有權是其各自商標註冊所有者的財產.
         </p>
-        <p>Powered by Luna Su</p>
       </div>
     </div>
   </footer>
@@ -72,34 +80,55 @@
   font-size: 40px;
   font-family: "Playfair", serif;
   font-weight: 700;
+  @include MQ(t768) {
+    font-size: 6vw;
+  }
 }
 .footer-content {
   display: flex;
   border-bottom: 1px solid rgb(0 0 0 / 9%);
-  @include MQ(t768) {
+  @include MQ(d1120) {
     flex-direction: column;
   }
+
   &-map {
     width: 50%;
     height: 450px;
-    @include MQ(t768) {
+    @include MQ(d1120) {
       width: 100%;
     }
   }
-  &-card {
+  &-qrCode {
+    img {
+      width: 180px;
+      cursor: pointer;
+
+      @include MQ(t768) {
+        width: 30vw;
+      }
+    }
+  }
+  &-block {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 10px;
+  }
+  &-card {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 50%;
-    padding: 40px;
-    gap: 20px;
-    background: #002633;
-    color: #fff;
+    padding: 20px 40px;
+    gap: 30px;
+    background: #c8c8c8;
+    color: black;
     font-weight: 500;
-    @include MQ(t768) {
+    @include MQ(d1120) {
       width: 100%;
       padding: 4vw;
+    }
+    @include MQ(t768) {
+      gap: 6vw;
     }
   }
   &-box {
@@ -109,41 +138,59 @@
     gap: 20px;
     line-height: 1.5;
     letter-spacing: 1px;
+    @include MQ(t768) {
+      gap: 3vw;
+    }
     p:first-of-type {
       font-size: 20px;
+
+      @include MQ(t768) {
+        font-size: 3vw;
+      }
     }
     p:not(:first-of-type) {
-      color: #7697a2;
+      color: #444;
     }
     div {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
+    p {
+      @include MQ(t768) {
+        font-size: 2.4vw;
+      }
+    }
   }
   i {
     font-size: 36px;
     color: rgb(166, 10, 10);
+
+    @include MQ(t768) {
+      font-size: 5vw;
+    }
   }
 }
 
 .footer-footer {
   display: flex;
-  justify-content: space-between;
-  background: #002633;
-  color: #7697a2;
+  justify-content: center;
+  flex-direction: column;
+  background: #c8c8c8;
+  color: #444;
   font-size: 10px;
   padding: 20px;
-  gap: 40px;
   line-height: 1.5;
   letter-spacing: 1px;
+  gap: 10px;
+  @include MQ(t768) {
+    font-size: 2.4vw;
+  }
   div {
     display: flex;
     flex-direction: column;
     gap: 6px;
-  }
-  div:last-of-type {
-    align-items: end;
+    text-align: center;
   }
 }
 </style>

@@ -527,7 +527,7 @@ onMounted(() => {
     font-weight: 500;
     min-width: 230px;
     @include MQ(t768) {
-      font-size: 2.8vw;
+      font-size: 2vw;
       padding: 1.6vw 2vw;
       min-width: 10vw;
     }
@@ -873,6 +873,7 @@ onMounted(() => {
 
     @include MQ(d1120) {
       grid-template-columns: repeat(2, 1fr); /* 每列一欄 */
+      padding: 20px;
     }
   }
   &-box {

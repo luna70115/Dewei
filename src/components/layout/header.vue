@@ -9,9 +9,11 @@ const router = useRouter();
 
     <nav class="header-nav">
       <div class="header-nav-item">
-        <a href="#" class="header-arrow">About</a>
+        <a href="#" class="header-arrow">IronCAD</a>
         <ul class="header-dropdown">
-          <li><a href="#">3D設計</a></li>
+          <li>
+            <router-link to="/ironcad/ironcad">3D設計</router-link>
+          </li>
           <li><a href="#">Draft2D</a></li>
           <li><a href="#">授權方式</a></li>
         </ul>
