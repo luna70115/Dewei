@@ -14,7 +14,10 @@ const router = useRouter();
           <li>
             <router-link to="/ironcad/ironcad">3D設計</router-link>
           </li>
-          <li><a href="#">Draft2D</a></li>
+          <li>
+            <router-link to="/ironcad/ironcad-draft">Draft2D</router-link>
+          </li>
+
           <li><a href="#">授權方式</a></li>
         </ul>
       </div>
@@ -61,6 +64,9 @@ const router = useRouter();
 
 <style scoped lang="scss">
 .header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;

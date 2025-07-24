@@ -13,10 +13,12 @@ import Footer from "../components/layout/footer.vue";
 
 <style lang="scss">
 .layout-default {
+  position: relative;
   display: flex;
   flex-direction: column;
   // height: 100vh;
   align-items: center;
   overflow: auto;
+  margin-top: 70px;
 }
 </style>

@@ -14,7 +14,7 @@
         </p>
         <div>
           <button class="ironCAD-info-freeBtn">免費試用</button>
-          <button class="ironCAD-info-downloadBtn">下載IronCAD</button>
+          <button class="ironCAD-info-downloadBtn">聯絡我們</button>
         </div>
       </div>
       <img
@@ -347,6 +347,7 @@
     border-radius: 50px;
     font-size: 20px;
     font-weight: 500;
+    transition: all 0.3s ease;
     @include MQ(t768) {
       padding: 2vw 4vw;
 
@@ -355,6 +356,7 @@
     &:hover {
       background: rgb(0, 0, 0);
       color: #fff;
+      transform: scale(1.1);
     }
   }
   &-downloadBtn {
@@ -365,12 +367,15 @@
     font-weight: 500;
     background: rgb(98, 137, 195);
     color: #fff;
+    transition: all 0.3s ease;
+
     @include MQ(t768) {
       padding: 2vw 3vw;
       font-size: 3vw;
     }
     &:hover {
       background: rgb(65, 90, 129);
+      transform: scale(1.1);
     }
   }
   &-img {
@@ -400,7 +405,7 @@
 .ironCAD-advantage {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 60px;
   background: linear-gradient(135deg, #04c9ff, #3749d3, #541caa);
   padding: 70px;
   @include MQ(d1120) {
@@ -421,7 +426,6 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    height: 360px;
     gap: 50px;
     @include MQ(d1120) {
       flex-direction: column;
@@ -590,6 +594,7 @@
     color: black;
     padding: 4px;
     line-height: 1.5;
+    font-weight: 500;
     @include MQ(t768) {
       font-size: 2.4vw;
     }
