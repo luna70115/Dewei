@@ -7,7 +7,7 @@
   <div class="ironCAD">
     <section class="ironCAD-info">
       <div class="ironCAD-info-content">
-        <img src="@/assets/images/logo.png" alt="" class="ironCAD-info-logo" />
+        <!-- <img src="@/assets/images/logo.png" alt="" class="ironCAD-info-logo" /> -->
         <h2>使用 IronCAD 工作效率更高</h2>
         <p>
           結合創新設計與直覺操作的3D建模工具，支援拖放式建模。即時視覺化設計，提升團隊溝通與開發效率，快速完成產品開發。
@@ -124,7 +124,7 @@
     </section>
     <section class="ironCAD-superb">
       <h1>IronCAD能夠加速您的設計流程</h1>
-      <div class="ironCAD-superb-box">
+      <div class="ironCAD-superb-box" data-aos="fade-down">
         <div class="ironCAD-superb-card">
           <div>
             <img src="@/assets/images/superb1.png" alt="" />
@@ -207,6 +207,87 @@
           </p>
         </div>
       </div>
+    </section>
+    <section class="ironCAD-table">
+      <h1>IronCAD的電腦設備建議</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>最低設備</th>
+            <th>建議設備</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>作業系統</td>
+            <td>
+              64 位元版本的 Windows<br />
+              Microsoft Windows 11<br />
+              Microsoft Windows 10<br />
+              Microsoft Windows 8.1
+            </td>
+            <td>
+              64 位元版本的 Windows<br />
+              Microsoft Windows 11<br />
+              Microsoft Windows 10
+            </td>
+          </tr>
+          <tr>
+            <td>中央處理器</td>
+            <td>
+              1.6 GHz 或更快的多核心處理器<br />
+              Intel Xeon 系列<br />
+              Intel Core i 系列<br />
+              AMD Opteron 系列<br />
+              AMD Athlon 系列或更高版本
+            </td>
+            <td>
+              2.0 GHz 或更快的多核心處理器<br />
+              Intel Xeon 系列<br />
+              Intel Core i 系列<br />
+              AMD Ryzen 系列
+            </td>
+          </tr>
+          <tr>
+            <td>記憶體</td>
+            <td>8 GB 或更多</td>
+            <td>16 GB 或更多</td>
+          </tr>
+          <tr>
+            <td>GPU</td>
+            <td>DirectX 9 或 OpenGL 2 相容顯示卡（256 MB 或更多視訊記憶體）</td>
+            <td>
+              DirectX 11 或 OpenGL 2 相容顯示卡（中階或以上）<br />
+              NVIDIA Quadro / GeForce 系列<br />
+              AMD Radeon Pro / Radeon 系列<br />
+              *GPU 記憶體 4GB 或以上
+            </td>
+          </tr>
+          <tr>
+            <td>儲存空間</td>
+            <td>10 GB 或更多可用空間</td>
+            <td>10 GB 或更多可用空間</td>
+          </tr>
+          <tr>
+            <td>顯示器解析度</td>
+            <td>1280 x 768 或更高</td>
+            <td>1920 x 1080 或更高</td>
+          </tr>
+          <tr>
+            <td>應用</td>
+            <td>網路瀏覽器/Adobe Reader</td>
+            <td>Microsoft Excel<br />（BOM 運動／參數運動）</td>
+          </tr>
+          <tr>
+            <td>其他的</td>
+            <td colspan="2">
+              連接到網際網路<br />
+              * 單機許可證透過網路啟動許可
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </div>
 </template>
@@ -354,11 +435,8 @@
       width: 360px;
       height: 240px;
       border: 3px solid #120030;
+      box-shadow: 14px 16px rgba(0, 0, 0, 0.6);
 
-      &:hover {
-        transform: scale(1.1);
-        box-shadow: 14px 16px rgba(0, 0, 0, 0.6);
-      }
       @include MQ(d1120) {
         width: 100%;
         height: 100%;
@@ -449,6 +527,7 @@
     &:hover h2 {
       opacity: 1;
     }
+
     div {
       position: relative;
     }
@@ -469,6 +548,7 @@
       width: 100%;
       text-align: center;
       transition: all 0.3s ease;
+      padding: 10px;
     }
     p {
       padding: 20px;
@@ -477,6 +557,41 @@
       border: 1px solid #444;
       border-top: none;
       border-radius: 0 0 10px 10px;
+    }
+  }
+}
+.ironCAD-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px;
+  @include MQ(t768) {
+    padding: 5vw;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
+    color: black;
+    @include MQ(t768) {
+      font-size: 5vw;
+    }
+  }
+  table,
+  tbody,
+  tr,
+  td,
+  th {
+    border: 1px solid #444;
+    background: rgb(187, 214, 255);
+    color: black;
+    padding: 4px;
+    line-height: 1.5;
+    @include MQ(t768) {
+      font-size: 2.4vw;
     }
   }
 }

@@ -9,7 +9,7 @@ const router = useRouter();
 
     <nav class="header-nav">
       <div class="header-nav-item">
-        <a href="#" class="header-arrow">IronCAD</a>
+        <p class="header-arrow">IronCAD</p>
         <ul class="header-dropdown">
           <li>
             <router-link to="/ironcad/ironcad">3D設計</router-link>
@@ -19,10 +19,10 @@ const router = useRouter();
         </ul>
       </div>
       <div class="header-nav-item">
-        <a href="#">NEWS</a>
+        <p>NEWS</p>
       </div>
       <div class="header-nav-item">
-        <a href="#" class="header-arrow">ADD-ON</a>
+        <p class="header-arrow">ADD-ON</p>
         <ul class="header-dropdown">
           <li><a href="#">Mechanical</a></li>
           <li><a href="#">Keyshot</a></li>
@@ -31,10 +31,10 @@ const router = useRouter();
         </ul>
       </div>
       <div class="header-nav-item">
-        <a href="#">NEWS</a>
+        <p>NEWS</p>
       </div>
       <div class="header-nav-item">
-        <a href="#" class="header-arrow">ENCYCAM</a>
+        <p class="header-arrow">ENCYCAM</p>
         <ul class="header-dropdown">
           <li><a href="#">2.5和3軸銑削</a></li>
           <li><a href="#">4軸同動銑削</a></li>
@@ -43,10 +43,10 @@ const router = useRouter();
         </ul>
       </div>
       <div class="header-nav-item">
-        <a href="#">API</a>
+        <p>API</p>
       </div>
       <div class="header-nav-item">
-        <a href="#">Courses</a>
+        <p>Courses</p>
       </div>
     </nav>
     <nav class="header-mobile-nav">
@@ -107,7 +107,7 @@ const router = useRouter();
   &:hover {
     background: #e1e1e1;
   }
-  a {
+  p {
     display: flex;
     align-items: center;
     justify-content: center;
