@@ -3,13 +3,7 @@ import { onMounted } from "vue";
 import { Dropdown, Ripple, initMDB } from "mdb-ui-kit";
 import { getImageUrl } from "@/utils/getImageUrl";
 import "mdb-ui-kit/css/mdb.min.css";
-import { Swiper, SwiperSlide } from "swiper/vue";
-// Swiper modules
-import "swiper/css";
-import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper/modules";
-// 提供給 <Swiper> 使用的模組
-const modules = [Autoplay, Pagination];
+
 // import { Vue3Marquee } from "vue3-marquee";
 const date = new Date();
 const year = date.getFullYear();
@@ -67,17 +61,14 @@ onMounted(() => {
     <div class="home-video-content">
       <div class="home-video-content-box">
         <h1>
-          台灣首位 IronCAD 總代理，{{ DimensionWayYear }}
+          台灣首位 IronCAD 總代理，
+          <strong> {{ DimensionWayYear }} </strong>
           年專業經驗，市值得信賴的首選！
         </h1>
         <h2>
           <strong class="home-video-content-strong"> 迪威科技</strong>
-          作為 IronCAD 在台灣的第一個正式總代理，我們已深耕市場超過
-          <strong class="home-video-content-strong">{{
-            DimensionWayYear
-          }}</strong>
-
-          年，是目前規模最大、經驗最完整的專業團隊。
+          作為 IronCAD
+          在台灣的第一個正式總代理，是目前規模最大、經驗最完整的專業團隊。
           我們不只提供原廠同步技術支援，
 
           <strong> 更具備全台唯一 IronCAD API 二次開發實力</strong>
@@ -348,49 +339,10 @@ onMounted(() => {
   </section>
 
   <!-- 迪威介紹 -->
-  <section class="home-info">
-    <h1>DimensionWay</h1>
-    <img src="@/assets/images/dimensionWay-logo.png" alt="" />
-    <swiper
-      :modules="modules"
-      class="home-swiper"
-      :pagination="{
-        dynamicBullets: true
-      }"
-      :autoplay="{
-        delay: 5000, // 每 3 秒輪播一次
-        disableOnInteraction: false // 使用者互動後仍繼續自動播放
-      }"
-      loop
-    >
-      <swiper-slide class="home-swiper-slide">
-        迪威科技深耕 3D 設計領域超過
-        {{ DimensionWayYear }} 年，為台灣唯一同時提供北中南全區技術支援的
-        IronCAD
-        核心代理商。從銷售、培訓到客製開發，提供一站式全方位服務，是您邁向數位轉型的最佳夥伴。</swiper-slide
-      >
-      <swiper-slide class="home-swiper-slide"
-        >迪威科技擁有一支經驗豐富的工程師團隊，提供 獨家 API
-        二次開發技術，免費贈送給購買用戶，讓您的 IronCAD
-        軟體與企業流程完美整合、效能再進化！</swiper-slide
-      ><swiper-slide class="home-swiper-slide"
-        >包括台達電在內的眾多大型企業，皆選擇由迪威科技導入 IronCAD。超過 250
-        套系統的成功部署，證明我們在 專案管理、平台轉移與技術整合
-        方面的領先實力，是您值得託付的長期合作夥伴。</swiper-slide
-      >
-      <swiper-slide class="home-swiper-slide"
-        >迪威科技設有台北、台中、台南辦公室，即時提供技術支援與教育訓練。無論您在哪個城市，我們都能在第一時間幫您解決問題，讓您專注設計、穩健生產。</swiper-slide
-      ><swiper-slide class="home-swiper-slide"
-        >無論您是設計師、工程單位，還是企業團隊，迪威科技都能依據需求提供
-        顧問式導入服務與完整培訓課程，快速提升 IronCAD
-        操作效率與設計能力。</swiper-slide
-      >
-      <swiper-slide class="home-swiper-slide"
-        >IronCAD 是全球頂尖的 3D
-        工業設計工具，**選對代理，事半功倍！**迪威科技不只是銷售軟體，更提供完整解決方案，協助您加速設計流程、強化團隊競爭力，全面升級您的產品開發能力。</swiper-slide
-      >
-    </swiper>
-  </section>
+  <!-- <section class="home-info">
+    <div class="home-info-title"><h1>We are DimensionWay</h1></div>
+    <div></div>
+  </section> -->
 </template>
 
 <style scoped lang="scss">
@@ -455,14 +407,17 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   color: #fff;
-  padding: 30px;
+  padding: 60px;
   gap: 30px;
   h1 {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 700;
+    strong {
+      color: rgb(172 143 86);
+    }
   }
   h2 {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 1px;
@@ -611,36 +566,31 @@ onMounted(() => {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 100px 60px;
+  padding: 120px 60px;
   gap: 30px;
   @include MQ(t768) {
     padding: 8vw 4vw;
     gap: 6vw;
   }
-  img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border: 1px solid rgb(205, 205, 205);
-    border-radius: 50%;
-    padding: 10px;
-    @include MQ(t768) {
-      width: 14vw;
-      height: 14vw;
-    }
+  &-title {
+    display: flex;
+    justify-content: start;
+    width: 100%;
   }
   h1 {
-    font-size: 50px;
+    font-size: 90px;
     font-weight: 500;
     font-family: "Playfair", serif;
     font-weight: 600;
+    color: black;
+    text-shadow: 20px 14px #dcdcdc;
+    width: 80%;
     @include MQ(t768) {
       font-size: 8vw;
     }
   }
   div {
     display: flex;
-    justify-content: center;
     gap: 20px;
   }
   p {
@@ -712,9 +662,10 @@ onMounted(() => {
 .home-mixCard {
   display: flex;
   justify-content: space-around;
-  padding: 80px 40px;
+  padding: 120px 40px;
   width: 100%;
   gap: 20px;
+
   div {
     max-width: 400px;
     @include MQ(t768) {
@@ -806,7 +757,7 @@ onMounted(() => {
     }
     @include MQ(t768) {
       width: 100%;
-      height: 18vw;
+      height: 12vw;
     }
   }
   &-card {
@@ -864,9 +815,10 @@ onMounted(() => {
     position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
+    gap: 10px;
     width: 100%;
     padding: 36px;
-    background: linear-gradient(135deg, #596670, #8d99ae, #edf2f4);
+    // background: linear-gradient(135deg, #596670, #8d99ae, #edf2f4);
     @include MQ(d1366) {
       grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
     }
@@ -877,10 +829,12 @@ onMounted(() => {
     }
   }
   &-box {
+    border-radius: 20px;
     position: relative; // 讓子元素絕對定位的參考點
     overflow: hidden; // 避免放大後溢位
     aspect-ratio: 1 / 1;
     cursor: pointer;
+    transition: all 0.3s ease;
 
     img,
     p {
@@ -923,6 +877,7 @@ onMounted(() => {
     }
 
     &:hover {
+      border-radius: 100px;
       img {
         transform: scale(1.1);
         z-index: 1;
@@ -932,22 +887,6 @@ onMounted(() => {
         z-index: 2;
       }
     }
-  }
-}
-.home-swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.home-swiper-slide {
-  text-align: center;
-  font-size: 20px;
-  display: flex;
-  height: 140px;
-  margin-top: 10px;
-  @include MQ(t768) {
-    font-size: 2.8vw;
-    height: 20vw;
   }
 }
 </style>

@@ -18,7 +18,9 @@ const router = useRouter();
             <router-link to="/ironcad/ironcad-draft">Draft2D</router-link>
           </li>
 
-          <li><a href="#">授權方式</a></li>
+          <li>
+            <router-link to="/ironcad/authorize">授權方式</router-link>
+          </li>
         </ul>
       </div>
       <div class="header-nav-item">
@@ -72,9 +74,17 @@ const router = useRouter();
   justify-content: space-between;
   width: 100%;
   height: 70px;
-  background: #f5f5f5;
+  padding: 0 24px;
+  background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 模糊玻璃效果 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 支援 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 微陰影讓層次感更明顯 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* 淺色邊框讓效果更像玻璃 */
   font-size: 18px;
   font-weight: 500;
+  @include MQ(d1120) {
+    padding: 0;
+  }
   img {
     width: 120px;
     cursor: pointer;
@@ -111,7 +121,7 @@ const router = useRouter();
   height: 100%;
   width: 140px;
   &:hover {
-    background: #e1e1e1;
+    background: #e1e1e183;
   }
   p {
     display: flex;
@@ -121,6 +131,7 @@ const router = useRouter();
     color: #333;
     width: 100%;
     height: 100%;
+    cursor: pointer;
   }
 
   &:hover .header-dropdown {

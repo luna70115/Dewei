@@ -49,13 +49,13 @@
       </div>
     </div>
     <div class="footer-footer">
-      <div>
+      <!-- <div>
         <p>
           Solidworks ®為美商達梭系統旗下的SOLIDWORKS公司所有之商標權，AutoCAD
           ®為美商歐特克公司所有之商標權，本站僅用於表彰IronCAD產品特性說明使用.
         </p>
         <p>Copyright © 2025 迪威科技有限公司</p>
-      </div>
+      </div> -->
       <div>
         <p>
           本網站所提及之商標，商標名稱或公司名稱僅用於識別，其所有權是其各自商標註冊所有者的財產.
@@ -75,7 +75,7 @@
   align-items: center;
   width: 100%;
   padding: 10px;
-  background: rgb(166, 10, 10);
+  background: rgb(98, 137, 195);
   color: #fff;
   font-size: 40px;
   font-family: "Playfair", serif;
