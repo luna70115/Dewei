@@ -230,7 +230,7 @@
         <img src="@/assets/images/solidWorks-case1.jpg" alt="" />
       </div>
       <div class="solidWorks-case-container">
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-left">
           <h2>精密機械製造業 - X盛工業股份有限公司</h2>
           <div>
             <p>行業：精密機械製造</p>
@@ -238,7 +238,7 @@
             <p>原使用軟體：SolidWorks Premium</p>
           </div>
         </div>
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-left">
           <h2>轉換前的挑戰</h2>
           <div>
             <p>每個專案平均需要3-4週的設計時間</p>
@@ -247,7 +247,7 @@
             <p>新員工需要3-6個月才能熟練操作</p>
           </div>
         </div>
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-left">
           <h2>使用IronCAD後的改善</h2>
           <div>
             <p>設計效率提升65%：相同專案現在只需1.5-2週完成</p>
@@ -256,7 +256,7 @@
             <p>培訓時間縮短83%：新員工僅需3-5天即可上手基本操作</p>
           </div>
         </div>
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-left">
           <h2>客戶見證</h2>
           <div>
             <p>
@@ -269,7 +269,7 @@
     </div>
     <div class="solidWorks-case-card column-reverse">
       <div class="solidWorks-case-container">
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-right">
           <h2>汽車零組件業 - 泰X精密科技</h2>
           <div>
             <p>行業：汽車零組件設計製造</p>
@@ -277,7 +277,7 @@
             <p>原使用軟體：SolidWorks Professional + AutoCAD</p>
           </div>
         </div>
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-right">
           <h2>轉換前的挑戰</h2>
           <div>
             <p>3D與2D圖檔經常不同步，造成生產錯誤</p>
@@ -286,7 +286,7 @@
             <p>多套軟體授權費用龐大</p>
           </div>
         </div>
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-right">
           <h2>使用IronCAD後的改善</h2>
           <div>
             <p>圖檔同步100%：3D設變自動更新2D工程圖，零錯誤率</p>
@@ -295,7 +295,7 @@
             <p>軟體成本節省60%：整合解決方案大幅降低授權費用</p>
           </div>
         </div>
-        <div class="solidWorks-case-box">
+        <div class="solidWorks-case-box" data-aos="fade-right">
           <h2>客戶見證</h2>
           <div>
             <p>
@@ -315,7 +315,7 @@
     <div class="solidWorks-benefits-container">
       <h1 class="solidWorks-section-title">🎯 客戶推薦的五大選擇理由</h1>
 
-      <div class="solidWorks-benefits-benefit">
+      <div class="solidWorks-benefits-benefit" data-aos="fade-up">
         <h2>1. 🚀 上手快速、學習門檻低</h2>
         <p>
           「我們的新進工程師僅花 3 天就能獨立操作，這在過去幾乎是不可能的事。」
@@ -326,7 +326,7 @@
         </p>
       </div>
 
-      <div class="solidWorks-benefits-benefit">
+      <div class="solidWorks-benefits-benefit" data-aos="fade-up">
         <h2>2. ⚡ 設計效率倍增</h2>
         <p>「同樣的工作量，現在只需一半時間完成，讓我們能承接更多專案。」</p>
         <p>
@@ -335,7 +335,7 @@
         </p>
       </div>
 
-      <div class="solidWorks-benefits-benefit">
+      <div class="solidWorks-benefits-benefit" data-aos="fade-up">
         <h2>3. 💰 成本結構優化</h2>
         <p>「軟體支出大幅降低，卻享有更完整的功能與更穩定的服務。」</p>
         <p>
@@ -343,7 +343,7 @@
         </p>
       </div>
 
-      <div class="solidWorks-benefits-benefit">
+      <div class="solidWorks-benefits-benefit" data-aos="fade-up">
         <h2>4. 🛠 技術支援即時可靠</h2>
         <p>
           「迪威科技的技術團隊反應迅速，問題總能在第一時間獲得解決，讓我們更有信心使用。」
@@ -353,7 +353,7 @@
         </p>
       </div>
 
-      <div class="solidWorks-benefits-benefit">
+      <div class="solidWorks-benefits-benefit" data-aos="fade-up">
         <h2>5. 🧩 功能整合一站式</h2>
         <p>
           「3D建模、2D工程圖、檔案管理一次搞定，不再需要額外採購其他工具。」
@@ -363,7 +363,7 @@
         </p>
       </div>
 
-      <div class="solidWorks-cta-block">
+      <div class="solidWorks-cta-block" data-aos="fade-up">
         <h2>🏁 您還在觀望嗎？</h2>
         <ul>
           <li>🚀 加速產品開發流程</li>
@@ -617,7 +617,7 @@
     content: "✓";
     position: absolute;
     left: 15px;
-    top: 20%;
+    // top: 20%;
     // transform: translateY(-50%);
     font-weight: bold;
     font-size: 18px;
@@ -635,7 +635,7 @@
     content: "⚠";
     position: absolute;
     left: 15px;
-    top: 20%;
+    // top: 20%;
     // transform: translateY(-50%);
     font-weight: bold;
     font-size: 18px;
@@ -963,59 +963,66 @@
   }
 }
 .solidWorks-benefits {
-  background-color: #f9fbfd;
-  padding: 60px 20px;
-  font-family: "Noto Sans TC", sans-serif;
   color: #1f2d3d;
   @include MQ(t768) {
     padding: 6vw;
   }
-}
-
-.solidWorks-benefits-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include MQ(t768) {
+      gap: 4vw;
+      padding: 0;
+    }
+  }
+  &-benefit {
+    background-color: #ffffff;
+    border-left: 6px solid #0066cc;
+    padding: 30px;
+    // margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: translateY(-5px);
+    }
+    @include MQ(t768) {
+      padding: 4vw;
+      //   margin-bottom: 6vw;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #003366;
+      @include MQ(t768) {
+        font-size: 4vw;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 1px;
+      color: #333;
+      @include MQ(t768) {
+        font-size: 3vw;
+      }
+    }
+  }
 }
 
 .solidWorks-section-title {
   font-size: 36px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 60px;
+  //   margin-bottom: 60px;
   color: #002f6c;
   @include MQ(t768) {
     font-size: 6vw;
-  }
-}
-
-.solidWorks-benefits-benefit {
-  background-color: #ffffff;
-  border-left: 6px solid #0066cc;
-  padding: 30px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: translateY(-5px);
-  }
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #003366;
-    @include MQ(t768) {
-      font-size: 6vw;
-    }
-  }
-  p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 10px;
-    @include MQ(t768) {
-      font-size: 3vw;
-    }
   }
 }
 
@@ -1023,8 +1030,10 @@
   background-color: #eaf4ff;
   border-left: 6px solid #3399ff;
   padding: 40px;
-  margin-top: 60px;
   border-radius: 8px;
+  @include MQ(t768) {
+    padding: 6vw;
+  }
 }
 
 .solidWorks-cta-block h2 {
@@ -1077,6 +1086,10 @@
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;
+  @include MQ(t768) {
+    font-size: 4vw;
+    padding: 3vw 6vw;
+  }
 }
 
 .solidWorks-btn-primary:hover {
