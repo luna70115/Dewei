@@ -481,6 +481,7 @@ onMounted(() => {
     font-size: 20px;
     font-weight: 500;
     min-width: 230px;
+    transition: all 0.3s ease;
     @include MQ(t768) {
       font-size: 2vw;
       padding: 1.6vw 2vw;
@@ -546,12 +547,18 @@ onMounted(() => {
       text-align: center;
       line-height: 1.8;
       font-size: 12px;
+      height: 90px;
+      @include MQ(t768) {
+        height: auto;
+      }
     }
     button {
       padding: 10px 20px;
       background: transparent;
       border: 1px solid black;
       font-size: 12px;
+      transition: all 0.3s ease;
+
       &:hover {
         background: black;
         color: #fff;

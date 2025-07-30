@@ -24,7 +24,7 @@ const router = useRouter();
         </ul>
       </div>
       <div class="header-nav-item">
-        <p>NEWS</p>
+        <p><router-link to="/solidWorks/solidWorks">SolidWorks</router-link></p>
       </div>
       <div class="header-nav-item">
         <p class="header-arrow">ADD-ON</p>
