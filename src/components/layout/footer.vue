@@ -39,13 +39,13 @@
             </div>
           </div>
         </div>
-        <a
+        <!-- <a
           href="https://line.me/ti/p/0c2QX0e90c"
           target="_blank"
           class="footer-content-qrCode"
         >
           <img src="@/assets/images/qrCode.png" alt="" />
-        </a>
+        </a> -->
       </div>
     </div>
     <div class="footer-footer">
@@ -75,7 +75,7 @@
   align-items: center;
   width: 100%;
   padding: 10px;
-  background: rgb(98, 137, 195);
+  background: #1a1c22;
   color: #fff;
   font-size: 40px;
   font-family: "Playfair", serif;
@@ -111,6 +111,8 @@
   &-block {
     display: flex;
     flex-direction: column;
+
+    width: 100%;
     gap: 10px;
   }
   &-card {
@@ -120,9 +122,9 @@
     width: 50%;
     padding: 20px 40px;
     gap: 30px;
-    background: #c8c8c8;
-    color: black;
-    font-weight: 500;
+    background: #1a1c22;
+    // color: black;
+    // font-weight: 500;
     @include MQ(d1120) {
       width: 100%;
       padding: 4vw;
@@ -142,7 +144,7 @@
       gap: 3vw;
     }
     p:first-of-type {
-      font-size: 20px;
+      // font-size: 20px;
 
       @include MQ(t768) {
         font-size: 3vw;
@@ -163,8 +165,8 @@
     }
   }
   i {
-    font-size: 36px;
-    color: rgb(166, 10, 10);
+    // font-size: 36px;
+    // color: rgb(166, 10, 10);
 
     @include MQ(t768) {
       font-size: 5vw;
@@ -176,8 +178,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background: #c8c8c8;
-  color: #444;
+  background: #1a1c22;
+  // color: #444;
   font-size: 10px;
   padding: 20px;
   line-height: 1.5;

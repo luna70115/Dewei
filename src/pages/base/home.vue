@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { Dropdown, Ripple, initMDB } from "mdb-ui-kit";
 import { getImageUrl } from "@/utils/getImageUrl";
 import "mdb-ui-kit/css/mdb.min.css";
-
 // import { Vue3Marquee } from "vue3-marquee";
 const date = new Date();
 const year = date.getFullYear();
@@ -16,7 +15,7 @@ const companies = [
   },
   {
     name: "Toyota",
-    link: "https://www.toyota.com.tw/showroom/COROLLA_CROSS?gad_source=1&gad_campaignid=14073708874&gbraid=0AAAAADkWlksY_4xpNeVjjs4A3UkdTJtx2&gclid=CjwKCAjw1dLDBhBoEiwAQNRiQXbdmRwdg43IU5Xry5lbUU07VfBiLbn0n8J9aTuRvgemD74DWkdzDxoCsGkQAvD_BwE",
+    link: "https://www.toyota.com.tw/showroom/COROLLA_CROSS",
     image: "company2.jpg"
   },
   {
@@ -24,11 +23,7 @@ const companies = [
     link: "https://consumer.huawei.com/tw/",
     image: "company3.jpg"
   },
-  {
-    name: "Ricoh",
-    link: "https://www.ricoh.com.tw/",
-    image: "company4.jpg"
-  },
+  { name: "Ricoh", link: "https://www.ricoh.com.tw/", image: "company4.jpg" },
   {
     name: "Husqvarna",
     link: "https://husqvarnataiwan.com.tw/",
@@ -40,12 +35,35 @@ const companies = [
     image: "company6.jpg"
   }
 ];
+
+const scrollY = ref(0);
+
+const handleScroll = () => {
+  scrollY.value = window.scrollY;
+};
+
 onMounted(() => {
+  window.addEventListener("scroll", handleScroll, { passive: true });
   initMDB({ Dropdown, Ripple });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
 <template>
+  <!--首頁開頭圖片-->
+  <div class="home-top">
+    <img src="@/assets/images/ironCad-home-top.png" alt="" />
+    <img class="home-top-title" src="@/assets/images/dimensionway.png" alt="" />
+    <div
+      class="home-top-overlay"
+      :style="{
+        backgroundColor: `rgba(0, 0, 0, ${Math.min(scrollY / 600, 0.8)})`
+      }"
+    ></div>
+  </div>
   <!--首頁影片介紹-->
   <div class="home-video-wrapper">
     <div class="home-video-overlay"></div>
@@ -61,11 +79,12 @@ onMounted(() => {
     <div class="home-video-content">
       <div class="home-video-content-box">
         <h1>
-          台灣首位 IronCAD 總代理，
+          台灣首位 IronCAD 總代理
+          <br />
           <strong> {{ DimensionWayYear }} </strong>
-          年專業經驗，市值得信賴的首選！
+          年專業經驗，市值得信賴的首選
         </h1>
-        <h2>
+        <!-- <h2>
           <strong class="home-video-content-strong"> 迪威科技</strong>
           作為 IronCAD
           在台灣的第一個正式總代理，是目前規模最大、經驗最完整的專業團隊。
@@ -74,7 +93,7 @@ onMounted(() => {
           <strong> 更具備全台唯一 IronCAD API 二次開發實力</strong>
           ，能依企業需求 量身打造設計流程、導入自動化操作、無痛轉換舊有平台，
           真正實現從設計到製造的高效整合，幫助客戶大幅提升研發效率與競爭力。
-        </h2>
+        </h2> -->
       </div>
       <div class="home-video-btn">
         <button>IronCAD免費試用</button>
@@ -85,10 +104,10 @@ onMounted(() => {
   </div>
   <!--首頁橫條-->
 
-  <h4 class="home-horizontalBar">
+  <!-- <h4 class="home-horizontalBar">
     獨家設計 IronCAD API 二次開發程式 , 免費提供客戶使用大幅提升設計效率 ,
     並且大量減少人為的疏失及錯誤
-  </h4>
+  </h4> -->
   <!--切去分頁功能-->
   <section class="home-function">
     <div class="home-function-card" data-aos="fade-up">
@@ -123,10 +142,10 @@ onMounted(() => {
 
   <!--優勢列表-->
   <section class="home-advantages">
-    <div class="home-advantages-img">
+    <!-- <div class="home-advantages-img">
       <img src="@/assets/images/meeting.png" alt="" />
       <img src="@/assets/images/meeting2.png" alt="" />
-    </div>
+    </div> -->
     <div class="home-advantages-card">
       <div class="home-advantages-box" data-aos="fade-right">
         <i class="bi bi-file-earmark-code"></i>
@@ -346,10 +365,36 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+.home-top {
+  width: 100%;
+  height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  &-title {
+    width: 20rem;
+  }
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* 不影響點擊 */
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 1rem;
+  }
+}
 .home-video-wrapper {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: calc(100vh - 6rem);
   overflow: hidden;
   &::before {
     content: "";
@@ -406,18 +451,19 @@ onMounted(() => {
   justify-content: space-around;
   width: 100%;
   height: 100%;
-  color: #fff;
-  padding: 60px;
-  gap: 30px;
+  color: #ecedf0;
+  padding: 6rem;
+  gap: 4rem;
   h1 {
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    line-height: 2rem;
     strong {
       color: rgb(172 143 86);
     }
   }
   h2 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 1px;
@@ -455,41 +501,41 @@ onMounted(() => {
   @include MQ(t768) {
     padding: 4vw;
     h1 {
-      font-size: 5vw;
+      // font-size: 5vw;
     }
     h2 {
-      font-size: 2vw;
+      // font-size: 2vw;
     }
     p {
-      font-size: 1.8vw;
+      // font-size: 1.8vw;
     }
   }
 }
 .home-video-btn {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1rem;
   @include MQ(d1120) {
     flex-direction: row;
   }
   button {
-    padding: 20px;
-    border-radius: 4px;
+    padding: 0.6rem;
+    border-radius: 0.6rem;
     border: 1px solid hsl(0, 0%, 50%);
     background: transparent;
     color: #fff;
-    font-size: 20px;
+    font-size: 0.8rem;
     font-weight: 500;
-    min-width: 230px;
+    // min-width: 8rem;
     transition: all 0.3s ease;
     @include MQ(t768) {
-      font-size: 2vw;
-      padding: 1.6vw 2vw;
-      min-width: 10vw;
+      // font-size: 2rem;
+      // padding: 1.6vw 2vw;
+      // min-width: 10vw;
     }
 
     &:hover {
-      background: hsl(0, 0%, 100%);
+      background: hsl(0, 0%, 70%);
       color: hsl(0, 0%, 0%);
     }
   }
@@ -512,8 +558,9 @@ onMounted(() => {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 50px;
-  // background: rgb(216, 238, 255);
+  padding: 0 50px;
+  height: calc(100vh - 6rem);
+  background: #1a1c22;
   @include MQ(t768) {
     flex-direction: column;
     gap: 4vw;
@@ -525,6 +572,7 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     border: 1px solid rgb(205, 205, 205);
+    color: #d4d4d4;
     padding: 30px;
     gap: 20px;
     flex: 0 0 30%;
@@ -532,7 +580,7 @@ onMounted(() => {
     width: 100%;
 
     i {
-      font-size: 36px;
+      font-size: 2rem;
     }
     h2 {
       font-size: 20px;
@@ -555,14 +603,10 @@ onMounted(() => {
     button {
       padding: 10px 20px;
       background: transparent;
-      border: 1px solid black;
+      border: 1px solid;
       font-size: 12px;
       transition: all 0.3s ease;
-
-      &:hover {
-        background: black;
-        color: #fff;
-      }
+      color: #d4d4d4;
     }
   }
 }
@@ -624,24 +668,26 @@ onMounted(() => {
   &-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem;
+    gap: 2.4rem;
     width: 100%;
-    background: black;
-
+    height: calc(100vh - 4rem);
+    // background: linear-gradient(to top, #1a1c22 0%, #000000 90%);
     @include MQ(t768) {
       gap: 3vw;
-      background: black;
-      padding: 3vw;
+      // background: black;
+      // padding: 3vw;
     }
   }
   &-box {
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 20px;
-    width: 100%;
-    padding: 20px;
-    color: #fff;
+    gap: 2rem;
+    width: 60%;
+    // color: #fff;
 
     @include MQ(t768) {
       border: 1px solid #fff;
@@ -651,18 +697,20 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid;
     }
     i {
-      font-size: 40px;
+      font-size: 2rem;
     }
     h1 {
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 1rem;
+      // font-weight: 700;
     }
     p {
       line-height: 1.5;
       letter-spacing: 1px;
-      font-size: 12px;
+      font-size: 0.8rem;
     }
   }
 }
@@ -822,9 +870,9 @@ onMounted(() => {
     position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
-    gap: 10px;
+    gap: 1rem;
     width: 100%;
-    padding: 36px;
+    padding: 10rem;
     // background: linear-gradient(135deg, #596670, #8d99ae, #edf2f4);
     @include MQ(d1366) {
       grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
@@ -884,7 +932,6 @@ onMounted(() => {
     }
 
     &:hover {
-      border-radius: 100px;
       img {
         transform: scale(1.1);
         z-index: 1;

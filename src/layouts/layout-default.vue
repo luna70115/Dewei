@@ -19,6 +19,6 @@ import Footer from "../components/layout/footer.vue";
   // height: 100vh;
   align-items: center;
   overflow: auto;
-  margin-top: 70px;
+  //margin-top: 70px;
 }
 </style>

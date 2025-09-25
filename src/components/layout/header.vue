@@ -73,7 +73,7 @@ const router = useRouter();
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 70px;
+  height: 3rem;
   padding: 0 24px;
   background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
   backdrop-filter: blur(10px); /* 模糊玻璃效果 */
@@ -106,11 +106,11 @@ const router = useRouter();
       display: block;
       div {
         display: flex;
-        gap: 10px;
+        gap: 1rem;
         margin-right: 20px;
       }
       i {
-        font-size: 30px;
+        font-size: 1.5rem;
         cursor: pointer;
       }
     }
@@ -128,7 +128,7 @@ const router = useRouter();
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #333;
+    // color: #333;
     width: 100%;
     height: 100%;
     cursor: pointer;
