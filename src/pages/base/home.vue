@@ -83,10 +83,6 @@ onBeforeUnmount(() => {
   </div>
   <!--首頁橫條-->
 
-  <!-- <h4 class="home-horizontalBar">
-    獨家設計 IronCAD API 二次開發程式 , 免費提供客戶使用大幅提升設計效率 ,
-    並且大量減少人為的疏失及錯誤
-  </h4> -->
   <!--切去分頁功能-->
   <section class="home-function">
     <div class="home-function-card" data-aos="fade-up">
@@ -121,10 +117,6 @@ onBeforeUnmount(() => {
 
   <!--優勢列表-->
   <section class="home-advantages">
-    <!-- <div class="home-advantages-img">
-      <img src="@/assets/images/meeting.png" alt="" />
-      <img src="@/assets/images/meeting2.png" alt="" />
-    </div> -->
     <div class="home-advantages-card">
       <div class="home-advantages-box" data-aos="fade-right">
         <i class="bi bi-file-earmark-code"></i>
@@ -188,8 +180,14 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
+    <div class="home-advantages-img">
+      <img src="@/assets/images/meeting.png" alt="" />
+      <img src="@/assets/images/meeting2.png" alt="" />
+    </div>
   </section>
-  <div class="home-dl-content">
+
+  <!--下載試用-->
+  <section class="home-dl-content">
     <div class="home-dl-content-box">
       <h1>
         台灣首位 IronCAD 總代理
@@ -203,7 +201,7 @@ onBeforeUnmount(() => {
       <button>2025 中文版下載</button>
       <button>IronCAD中文教學網</button>
     </div>
-  </div>
+  </section>
 
   <section class="home-mixCard">
     <!--軟體使用企業-->
@@ -398,28 +396,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: calc(100vh - 5rem);
   overflow: hidden;
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 10%;
-  //   background: black;
-  //   z-index: 2;
-  //   pointer-events: none;
-  // }
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 10%;
-  //   background: black;
-  //   z-index: 2;
-  //   pointer-events: none;
-  // }
+
   @include MQ(t768) {
     height: 80vw;
   }
@@ -446,16 +423,12 @@ onBeforeUnmount(() => {
 //   pointer-events: none;
 // }
 .home-dl-content {
-  // position: absolute;
-  // z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  height: 30rem;
-  // color: #ecedf0;
-  padding: 6rem;
-  gap: 4rem;
+  height: calc(100vh - 10rem);
+
   h1 {
     font-size: 1rem;
     letter-spacing: 0.2rem;
@@ -647,28 +620,26 @@ onBeforeUnmount(() => {
   &-img {
     display: flex;
     flex-direction: column;
-  }
-  img {
-    max-height: 400px;
-    object-fit: contain;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
     @include MQ(t768) {
       display: none;
     }
+  }
+  img {
+    max-height: 30rem;
+    object-fit: contain;
   }
   &-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // padding: 10rem;
-    // gap: 2.4rem;
-    width: 100%;
-    // height: calc(100vh - 4rem);
-    // background: linear-gradient(to top, #1a1c22 0%, #000000 90%);
+
+    padding: 10px;
     @include MQ(t768) {
       gap: 3vw;
-      // background: black;
-      // padding: 3vw;
     }
   }
   &-box {
@@ -678,8 +649,10 @@ onBeforeUnmount(() => {
     gap: 2rem;
     width: 100%;
     padding: 2rem 4rem;
-    // color: #fff;
-
+    max-width: 800px;
+    background: #dad7d7;
+    border-radius: 1rem;
+    margin: 0.4rem 0;
     @include MQ(t768) {
       border: 1px solid #fff;
       border-radius: 10px;
