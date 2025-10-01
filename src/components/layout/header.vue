@@ -1,10 +1,34 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 const router = useRouter();
+const scrollY = ref(0);
+const direction = ref<"up" | "down" | null>(null);
+const handleScroll = () => {
+  const currentY = window.scrollY;
+  if (currentY > scrollY.value) {
+    direction.value = "down"; // 往下
+  } else if (currentY < scrollY.value) {
+    direction.value = "up"; // 往上
+  }
+  scrollY.value = currentY;
+};
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <header class="header">
+  <header
+    class="header"
+    :class="{
+      'header-hide': direction === 'up' || null,
+      'header-show': direction === 'down'
+    }"
+  >
     <img src="@/assets/images/logo.png" alt="" @click="router.push('/')" />
 
     <nav class="header-nav">
@@ -75,13 +99,15 @@ const router = useRouter();
   width: 100%;
   height: 3rem;
   padding: 0 24px;
-  background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+  background: rgba(255, 255, 255, 0.7); /* 半透明背景 */
   backdrop-filter: blur(10px); /* 模糊玻璃效果 */
   -webkit-backdrop-filter: blur(10px); /* Safari 支援 */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 微陰影讓層次感更明顯 */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* 淺色邊框讓效果更像玻璃 */
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
+  transition: transform 0.4s ease; /* 控制滑動動畫 */
+
   @include MQ(d1120) {
     padding: 0;
   }
@@ -116,10 +142,17 @@ const router = useRouter();
     }
   }
 }
+.header-hide {
+  transform: translateY(0);
+}
+
+.header-show {
+  transform: translateY(-100%);
+}
 .header-nav-item {
   position: relative;
   height: 100%;
-  width: 140px;
+  width: 8rem;
   &:hover {
     background: #e1e1e183;
   }

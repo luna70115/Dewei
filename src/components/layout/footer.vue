@@ -7,12 +7,10 @@
       <iframe
         class="footer-content-map"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29120.121758586127!2d120.60412599999998!3d24.171199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693fc1f95fb733%3A0xfa171d78f6feb428!2zSXJvbkNBRCDov6rlqIHnp5HmioAg5Y-w5Lit!5e0!3m2!1szh-TW!2stw!4v1752596029725!5m2!1szh-TW!2stw"
-        style="border: 0"
-        allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
-      <div class="footer-content-card">
+      <!-- <div class="footer-content-card">
         <div class="footer-content-block">
           <div class="footer-content-box">
             <i class="bi bi-geo-alt"></i>
@@ -39,14 +37,7 @@
             </div>
           </div>
         </div>
-        <!-- <a
-          href="https://line.me/ti/p/0c2QX0e90c"
-          target="_blank"
-          class="footer-content-qrCode"
-        >
-          <img src="@/assets/images/qrCode.png" alt="" />
-        </a> -->
-      </div>
+      </div> -->
     </div>
     <div class="footer-footer">
       <!-- <div>
@@ -56,11 +47,11 @@
         </p>
         <p>Copyright © 2025 迪威科技有限公司</p>
       </div> -->
-      <div>
-        <p>
-          本網站所提及之商標，商標名稱或公司名稱僅用於識別，其所有權是其各自商標註冊所有者的財產.
-        </p>
-      </div>
+      <!-- <div>
+          <p>
+            本網站所提及之商標，商標名稱或公司名稱僅用於識別，其所有權是其各自商標註冊所有者的財產.
+          </p>
+        </div> -->
     </div>
   </footer>
 </template>
@@ -87,13 +78,16 @@
 .footer-content {
   display: flex;
   border-bottom: 1px solid rgb(0 0 0 / 9%);
+  background: #1a1c22;
+  padding: 2rem 6rem;
   @include MQ(d1120) {
     flex-direction: column;
   }
 
   &-map {
-    width: 50%;
+    width: 100%;
     height: 450px;
+    border-radius: 2rem;
     @include MQ(d1120) {
       width: 100%;
     }
@@ -179,12 +173,12 @@
   justify-content: center;
   flex-direction: column;
   background: #1a1c22;
-  // color: #444;
-  font-size: 10px;
+  color: #fff;
+  font-size: 1rem;
   padding: 20px;
   line-height: 1.5;
   letter-spacing: 1px;
-  gap: 10px;
+  gap: 1rem;
   @include MQ(t768) {
     font-size: 2.4vw;
   }

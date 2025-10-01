@@ -55,7 +55,11 @@ onBeforeUnmount(() => {
 <template>
   <!--首頁開頭圖片-->
   <div class="home-top">
-    <img src="@/assets/images/ironCad-home-top.png" alt="" />
+    <img
+      src="@/assets/images/ironCad-home-top.png"
+      alt=""
+      class="home-top-bigImg"
+    />
     <img class="home-top-title" src="@/assets/images/dimensionway.png" alt="" />
     <div
       class="home-top-overlay"
@@ -67,40 +71,15 @@ onBeforeUnmount(() => {
   <!--首頁影片介紹-->
   <div class="home-video-wrapper">
     <div class="home-video-overlay"></div>
-    <iframe
-      class="home-bg-video"
-      src="https://www.youtube.com/embed/2HosZbvECHo?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=2HosZbvECHo"
-      title="YouTube video player"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-    <div class="home-video-content">
-      <div class="home-video-content-box">
-        <h1>
-          台灣首位 IronCAD 總代理
-          <br />
-          <strong> {{ DimensionWayYear }} </strong>
-          年專業經驗，市值得信賴的首選
-        </h1>
-        <!-- <h2>
-          <strong class="home-video-content-strong"> 迪威科技</strong>
-          作為 IronCAD
-          在台灣的第一個正式總代理，是目前規模最大、經驗最完整的專業團隊。
-          我們不只提供原廠同步技術支援，
-
-          <strong> 更具備全台唯一 IronCAD API 二次開發實力</strong>
-          ，能依企業需求 量身打造設計流程、導入自動化操作、無痛轉換舊有平台，
-          真正實現從設計到製造的高效整合，幫助客戶大幅提升研發效率與競爭力。
-        </h2> -->
-      </div>
-      <div class="home-video-btn">
-        <button>IronCAD免費試用</button>
-        <button>2025 中文版下載</button>
-        <button>IronCAD中文教學網</button>
-      </div>
-    </div>
+    <video
+      src="@/assets/images/home-video.mp4"
+      poster="picture/cat.jpg"
+      autoplay
+      loop
+      muted
+      playsinline
+      style="width: 100%; height: 100%; object-fit: cover"
+    ></video>
   </div>
   <!--首頁橫條-->
 
@@ -210,6 +189,21 @@ onBeforeUnmount(() => {
       </div>
     </div>
   </section>
+  <div class="home-dl-content">
+    <div class="home-dl-content-box">
+      <h1>
+        台灣首位 IronCAD 總代理
+        <br />
+        <strong> {{ DimensionWayYear }} </strong>
+        年專業經驗，市值得信賴的首選
+      </h1>
+    </div>
+    <div class="home-video-btn">
+      <button>IronCAD免費試用</button>
+      <button>2025 中文版下載</button>
+      <button>IronCAD中文教學網</button>
+    </div>
+  </div>
 
   <section class="home-mixCard">
     <!--軟體使用企業-->
@@ -367,15 +361,23 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .home-top {
   width: 100%;
-  height: calc(100vh - 6rem);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   position: relative;
+  &-bigImg {
+    @include MQ(t768) {
+      width: 20rem;
+    }
+  }
   &-title {
     width: 20rem;
+    @include MQ(t768) {
+      width: 12rem;
+    }
   }
   &-overlay {
     position: absolute;
@@ -394,30 +396,30 @@ onBeforeUnmount(() => {
 .home-video-wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 5rem);
   overflow: hidden;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: black;
-    z-index: 2;
-    pointer-events: none;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: black;
-    z-index: 2;
-    pointer-events: none;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 10%;
+  //   background: black;
+  //   z-index: 2;
+  //   pointer-events: none;
+  // }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 10%;
+  //   background: black;
+  //   z-index: 2;
+  //   pointer-events: none;
+  // }
   @include MQ(t768) {
     height: 80vw;
   }
@@ -433,25 +435,25 @@ onBeforeUnmount(() => {
   pointer-events: none;
 }
 
-.home-video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 2;
-  pointer-events: none;
-}
-.home-video-content {
-  position: absolute;
-  z-index: 10;
+// .home-video-overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(0, 0, 0, 0.7);
+//   z-index: 2;
+//   pointer-events: none;
+// }
+.home-dl-content {
+  // position: absolute;
+  // z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  height: 100%;
-  color: #ecedf0;
+  height: 30rem;
+  // color: #ecedf0;
   padding: 6rem;
   gap: 4rem;
   h1 {
@@ -459,23 +461,21 @@ onBeforeUnmount(() => {
     letter-spacing: 0.2rem;
     line-height: 2rem;
     strong {
-      color: rgb(172 143 86);
+      font-size: 1.4rem;
+      font-weight: 700;
     }
   }
   h2 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 1px;
     strong {
-      color: rgb(172 143 86);
+      font-size: 1.2rem;
     }
   }
   &-strong {
-    font-size: 30px;
-    @include MQ(t768) {
-      font-size: 3vw;
-    }
+    font-size: 1.2rem;
   }
   p {
     font-size: 14px;
@@ -500,15 +500,6 @@ onBeforeUnmount(() => {
   }
   @include MQ(t768) {
     padding: 4vw;
-    h1 {
-      // font-size: 5vw;
-    }
-    h2 {
-      // font-size: 2vw;
-    }
-    p {
-      // font-size: 1.8vw;
-    }
   }
 }
 .home-video-btn {
@@ -521,22 +512,17 @@ onBeforeUnmount(() => {
   button {
     padding: 0.6rem;
     border-radius: 0.6rem;
-    border: 1px solid hsl(0, 0%, 50%);
+    border: 1px solid #808080;
     background: transparent;
-    color: #fff;
+    color: #808080;
     font-size: 0.8rem;
     font-weight: 500;
     // min-width: 8rem;
     transition: all 0.3s ease;
-    @include MQ(t768) {
-      // font-size: 2rem;
-      // padding: 1.6vw 2vw;
-      // min-width: 10vw;
-    }
 
     &:hover {
       background: hsl(0, 0%, 70%);
-      color: hsl(0, 0%, 0%);
+      color: rgb(255, 255, 255);
     }
   }
 }
@@ -558,32 +544,36 @@ onBeforeUnmount(() => {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 0 50px;
+  height: 100%;
+  padding: 4rem;
   height: calc(100vh - 6rem);
-  background: #1a1c22;
+  // background: linear-gradient(to top, #1a1c22 0%, #000000 100%);
   @include MQ(t768) {
     flex-direction: column;
     gap: 4vw;
     padding: 4vw;
+    height: 100%;
   }
   &-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(205, 205, 205);
-    color: #d4d4d4;
+    border: 1px solid;
+    // color: #d4d4d4;
     padding: 30px;
     gap: 20px;
     flex: 0 0 30%;
     min-height: 312px;
     width: 100%;
+    margin: auto;
 
     i {
       font-size: 2rem;
     }
     h2 {
       font-size: 20px;
+      text-align: center;
     }
     div {
       text-align: center;
@@ -606,7 +596,7 @@ onBeforeUnmount(() => {
       border: 1px solid;
       font-size: 12px;
       transition: all 0.3s ease;
-      color: #d4d4d4;
+      // color: #cdcdcd;
     }
   }
 }
@@ -670,10 +660,10 @@ onBeforeUnmount(() => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10rem;
-    gap: 2.4rem;
+    // padding: 10rem;
+    // gap: 2.4rem;
     width: 100%;
-    height: calc(100vh - 4rem);
+    // height: calc(100vh - 4rem);
     // background: linear-gradient(to top, #1a1c22 0%, #000000 90%);
     @include MQ(t768) {
       gap: 3vw;
@@ -683,15 +673,17 @@ onBeforeUnmount(() => {
   }
   &-box {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
-    width: 60%;
+    width: 100%;
+    padding: 2rem 4rem;
     // color: #fff;
 
     @include MQ(t768) {
       border: 1px solid #fff;
       border-radius: 10px;
+      padding: 1rem 2rem;
     }
     div {
       display: flex;
