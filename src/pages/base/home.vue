@@ -61,10 +61,18 @@ onBeforeUnmount(() => {
       class="home-top-bigImg"
     />
     <img class="home-top-title" src="@/assets/images/dimensionway.png" alt="" />
+    <!--下載試用-->
+    <section class="home-dl-content">
+      <div class="home-video-btn">
+        <button>IronCAD免費試用</button>
+        <button>2025 中文版下載</button>
+        <button>IronCAD中文教學網</button>
+      </div>
+    </section>
     <div
       class="home-top-overlay"
       :style="{
-        backgroundColor: `rgba(0, 0, 0, ${Math.min(scrollY / 600, 0.8)})`
+        backgroundColor: `rgba(0, 0, 0, ${Math.min(scrollY / 820, 10)})`
       }"
     ></div>
   </div>
@@ -78,14 +86,23 @@ onBeforeUnmount(() => {
       loop
       muted
       playsinline
-      style="width: 100%; height: 100%; object-fit: cover"
+      style="
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+      "
     ></video>
   </div>
   <!--首頁橫條-->
-
+  <div class="home-about">
+    <p>台灣首位IronCAD 總代理</p>
+    <p>擁有{{ DimensionWayYear }}年專業經驗</p>
+    <h1>迪威科技是您值得信賴的首選</h1>
+  </div>
   <!--切去分頁功能-->
   <section class="home-function">
-    <div class="home-function-card" data-aos="fade-up">
+    <div class="home-function-card">
       <i class="bi bi-file-earmark-code"></i>
       <h2>關於ENCYCAM</h2>
       <p>
@@ -94,7 +111,7 @@ onBeforeUnmount(() => {
       </p>
       <button>獲取更多信息</button>
     </div>
-    <div class="home-function-card" data-aos="fade-up">
+    <div class="home-function-card">
       <i class="bi bi-file-earmark-code"></i>
       <h2>Solidworks差異</h2>
       <div>
@@ -105,7 +122,7 @@ onBeforeUnmount(() => {
       </div>
       <button>獲取更多信息</button>
     </div>
-    <div class="home-function-card" data-aos="fade-up">
+    <div class="home-function-card">
       <i class="bi bi-file-earmark-code"></i>
       <h2>API客製化</h2>
       <p>
@@ -118,7 +135,7 @@ onBeforeUnmount(() => {
   <!--優勢列表-->
   <section class="home-advantages">
     <div class="home-advantages-card">
-      <div class="home-advantages-box" data-aos="fade-right">
+      <div class="home-advantages-box">
         <i class="bi bi-file-earmark-code"></i>
         <div>
           <h1>依照客戶需求，API客製化</h1>
@@ -128,7 +145,7 @@ onBeforeUnmount(() => {
           </p>
         </div>
       </div>
-      <div class="home-advantages-box" data-aos="fade-left">
+      <div class="home-advantages-box">
         <i class="bi bi-cash-coin"></i>
         <div>
           <h1>經濟實惠，入門簡單，功能強大</h1>
@@ -138,7 +155,7 @@ onBeforeUnmount(() => {
           </p>
         </div>
       </div>
-      <div class="home-advantages-box" data-aos="fade-right">
+      <div class="home-advantages-box">
         <i class="bi bi-brush"></i>
         <div>
           <h1>設計即展示，讓銷售與客戶一眼看懂</h1>
@@ -148,7 +165,7 @@ onBeforeUnmount(() => {
           </p>
         </div>
       </div>
-      <div class="home-advantages-box" data-aos="fade-left">
+      <div class="home-advantages-box">
         <i class="bi bi-clock-history"></i>
         <div>
           <h1>全面提升工作效率，從概念到量產更快一步</h1>
@@ -158,7 +175,7 @@ onBeforeUnmount(() => {
           </p>
         </div>
       </div>
-      <div class="home-advantages-box" data-aos="fade-right">
+      <div class="home-advantages-box">
         <i class="bi bi-arrow-repeat"></i>
         <div>
           <h1>無痛資料交換，整合無礙</h1>
@@ -169,7 +186,7 @@ onBeforeUnmount(() => {
           </p>
         </div>
       </div>
-      <div class="home-advantages-box" data-aos="fade-left">
+      <div class="home-advantages-box">
         <i class="bi bi-clipboard2-data"></i>
         <div>
           <h1>節省設計時間，靈感無限延伸</h1>
@@ -183,23 +200,6 @@ onBeforeUnmount(() => {
     <div class="home-advantages-img">
       <img src="@/assets/images/meeting.png" alt="" />
       <img src="@/assets/images/meeting2.png" alt="" />
-    </div>
-  </section>
-
-  <!--下載試用-->
-  <section class="home-dl-content">
-    <div class="home-dl-content-box">
-      <h1>
-        台灣首位 IronCAD 總代理
-        <br />
-        <strong> {{ DimensionWayYear }} </strong>
-        年專業經驗，市值得信賴的首選
-      </h1>
-    </div>
-    <div class="home-video-btn">
-      <button>IronCAD免費試用</button>
-      <button>2025 中文版下載</button>
-      <button>IronCAD中文教學網</button>
     </div>
   </section>
 
@@ -394,7 +394,7 @@ onBeforeUnmount(() => {
 .home-video-wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - 5rem);
+  height: 100vh;
   overflow: hidden;
 
   @include MQ(t768) {
@@ -412,23 +412,49 @@ onBeforeUnmount(() => {
   pointer-events: none;
 }
 
-// .home-video-overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: rgba(0, 0, 0, 0.7);
-//   z-index: 2;
-//   pointer-events: none;
-// }
+.home-about {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  padding: 6rem;
+  height: calc(100vh - 4rem);
+  width: 100%;
+  // gap: 1rem;
+  p {
+    font-size: 2rem;
+
+    letter-spacing: 1rem;
+  }
+  h1 {
+    font-size: 4rem;
+
+    letter-spacing: 1rem;
+    font-weight: 900;
+  }
+
+  @include MQ(t768) {
+    padding: 2rem;
+
+    h1 {
+      width: 100%;
+      font-size: 1rem;
+      text-align: center;
+      letter-spacing: 0.2rem;
+    }
+    p {
+      font-size: 1.4rem;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 0.6rem;
+    }
+  }
+}
 .home-dl-content {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  height: calc(100vh - 10rem);
-
   h1 {
     font-size: 1rem;
     letter-spacing: 0.2rem;
@@ -447,19 +473,8 @@ onBeforeUnmount(() => {
       font-size: 1.2rem;
     }
   }
-  &-strong {
-    font-size: 1.2rem;
-  }
   p {
     font-size: 14px;
-  }
-  &-box {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    @include MQ(t768) {
-      gap: 2vw;
-    }
   }
   @include MQ(d1120) {
     flex-direction: column;
@@ -477,11 +492,8 @@ onBeforeUnmount(() => {
 }
 .home-video-btn {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
-  @include MQ(d1120) {
-    flex-direction: row;
-  }
+  margin-top: 1rem;
   button {
     padding: 0.6rem;
     border-radius: 0.6rem;
@@ -520,7 +532,7 @@ onBeforeUnmount(() => {
   height: 100%;
   padding: 4rem;
   height: calc(100vh - 6rem);
-  // background: linear-gradient(to top, #1a1c22 0%, #000000 100%);
+
   @include MQ(t768) {
     flex-direction: column;
     gap: 4vw;
@@ -617,12 +629,14 @@ onBeforeUnmount(() => {
 .home-advantages {
   display: flex;
   width: 100%;
+  padding: 2rem;
+  gap: 2rem;
   &-img {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 50%;
+
     @include MQ(t768) {
       display: none;
     }
@@ -634,13 +648,9 @@ onBeforeUnmount(() => {
   &-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
-    padding: 10px;
-    @include MQ(t768) {
-      gap: 3vw;
-    }
+    gap: 1rem;
   }
   &-box {
     display: flex;
@@ -648,11 +658,9 @@ onBeforeUnmount(() => {
     align-items: center;
     gap: 2rem;
     width: 100%;
-    padding: 2rem 4rem;
-    max-width: 800px;
+    padding: 2rem;
     background: #dad7d7;
     border-radius: 1rem;
-    margin: 0.4rem 0;
     @include MQ(t768) {
       border: 1px solid #fff;
       border-radius: 10px;
@@ -664,6 +672,7 @@ onBeforeUnmount(() => {
       gap: 10px;
       padding: 0.4rem 0;
       border-bottom: 1px solid;
+      max-width: 800px;
     }
     i {
       font-size: 2rem;
@@ -837,15 +846,14 @@ onBeforeUnmount(() => {
     grid-template-columns: repeat(4, 1fr); /* 每列兩欄 */
     gap: 1rem;
     width: 100%;
-    padding: 10rem;
-    // background: linear-gradient(135deg, #596670, #8d99ae, #edf2f4);
+    padding: 1rem;
+
     @include MQ(d1366) {
       grid-template-columns: repeat(3, 1fr); /* 每列兩欄 */
     }
 
     @include MQ(d1120) {
       grid-template-columns: repeat(2, 1fr); /* 每列一欄 */
-      padding: 20px;
     }
   }
   &-box {
@@ -873,7 +881,7 @@ onBeforeUnmount(() => {
       position: absolute;
       top: 0;
       left: 0;
-      gap: 40px;
+      gap: 1rem;
       width: 100%;
       height: 100%;
       align-items: center;
@@ -882,10 +890,10 @@ onBeforeUnmount(() => {
       flex-direction: column;
       background: rgba(0, 0, 0, 0.8); // 半透明遮罩
       color: #fff;
-      padding: 30px;
+      padding: 2rem;
       h1 {
         position: relative;
-        font-size: 20px;
+        font-size: 1rem;
         text-align: center;
       }
       p {
@@ -893,6 +901,8 @@ onBeforeUnmount(() => {
         line-height: 1.5;
         text-align: center;
         height: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 

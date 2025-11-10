@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Header from "../components/layout/header.vue";
 import Footer from "../components/layout/footer.vue";
+import Chat from "@/components/Chat.vue";
 </script>
 
 <template>
   <div class="layout-default">
     <Header />
+    <Chat />
     <slot />
     <Footer />
   </div>
